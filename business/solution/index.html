@@ -1,0 +1,511 @@
+﻿<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giải pháp IT - AppEZ</title>
+  <meta name="description" content="AppEZ triển khai sao lưu Veeam, giám sát Full-stack thời gian thực WhaTap và quy trình tư vấn IT chuyên nghiệp để đảm bảo tính liên tục của doanh nghiệp.">
+  <!-- Pretendard Font CDN -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#f97316', /* orange-500 */
+              amber: '#ea580c',  /* orange-600 */
+              darkBg: '#0f172a', /* slate-900 */
+              cardBg: '#1e293b', /* slate-800 */
+              border: '#334155'  /* slate-700 */
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Custom CSS -->
+  <link class="seo-hreflang" rel="stylesheet" href="../../assets/css/custom.css">
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+
+  <!-- SEO Multilingual Link Tags -->
+  <link rel="alternate" hreflang="ko" href="https://appez.co.kr/business/solution/" />
+  <link rel="alternate" hreflang="en" href="https://appez.co.kr/en/business/solution/" />
+  <link rel="alternate" hreflang="vi" href="https://appez.co.kr/vn/business/solution/" />
+  <link rel="alternate" hreflang="x-default" href="https://appez.co.kr/business/solution/" />
+</head>
+<body class="bg-brand-darkBg text-slate-300 selection:bg-brand-orange selection:text-white leading-relaxed text-base">
+
+  <!-- Navigation Header -->
+  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent py-4 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <!-- Logo -->
+      <a href="../../" class="flex items-center gap-2 group">
+        <span class="text-2xl font-extrabold tracking-tight font-outfit text-white">
+          App<span class="text-brand-orange group-hover:text-brand-amber transition-colors">EZ</span> VINA
+        </span>
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center gap-8 text-base font-medium tracking-wide">
+        <a href="../../company/" class="text-slate-300 hover:text-brand-orange transition-colors">Giới thiệu</a>
+        
+        <!-- Dropdown Menu -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 text-brand-orange font-semibold border-b-2 border-brand-orange pb-1 focus:outline-none">
+            Business <i data-lucide="chevron-down" class="w-4 h-4 text-brand-orange"></i>
+          </button>
+          <div class="absolute top-full -left-4 mt-2 w-48 rounded-lg shadow-xl bg-brand-cardBg border border-white/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2">
+            <a href="../infra/" class="block px-4 py-2 text-slate-300 hover:bg-brand-orange hover:text-white transition-colors">IT Infra</a>
+            <a href="./" class="block px-4 py-2 text-brand-orange bg-white/5 font-bold transition-colors">IT Solution</a>
+          </div>
+        </div>
+
+        <a href="../../references/" class="text-slate-300 hover:text-brand-orange transition-colors">Dự án thực tế</a>
+      </nav>
+
+      <!-- Right Nav Buttons -->
+      <div class="hidden md:flex items-center gap-6">
+        <!-- Language Switcher -->
+        <div class="relative group">
+          <button class="flex items-center gap-1.5 text-slate-300 hover:text-brand-orange transition-colors focus:outline-none text-base font-semibold">
+            <i data-lucide="globe" class="w-4.5 h-4.5"></i> <span class="ml-1 uppercase">VN</span> <i data-lucide="chevron-down" class="w-3 h-3"></i>
+          </button>
+          <div class="absolute right-0 top-full mt-2 w-24 rounded-lg shadow-xl bg-brand-cardBg border border-white/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-1 text-sm font-medium z-50">
+            <a href="../../../business/solution/" class="block px-4 py-2 text-slate-300 hover:text-brand-orange hover:bg-white/5 transition-colors">KO</a>
+            <a href="../../../en/business/solution/" class="block px-4 py-2 text-slate-300 hover:text-brand-orange hover:bg-white/5 transition-colors">EN</a>
+            <a href="./" class="block px-4 py-2 text-brand-orange font-bold hover:bg-white/5 transition-colors">VN</a>
+          </div>
+        </div>
+
+        <a href="../../contact/" class="px-5 py-2 rounded-full bg-brand-orange hover:bg-brand-amber text-white text-base font-semibold tracking-wider transition-all duration-300 shadow-md shadow-brand-orange/20">
+          Liên hệ
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none hover:text-brand-orange transition-colors">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-menu" class="fixed inset-0 z-50 hidden bg-brand-darkBg/95 backdrop-blur-lg flex flex-col justify-between p-6">
+    <div>
+      <div class="flex items-center justify-between mb-8">
+        <a href="../../" class="text-2xl font-extrabold tracking-tight font-outfit text-white">
+          App<span class="text-brand-orange">EZ</span> VINA
+        </a>
+        <button id="mobile-menu-close-btn" class="text-white hover:text-brand-orange transition-colors">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col gap-6 text-lg font-medium">
+        <a href="../../company/" class="text-slate-300 hover:text-brand-orange py-2 border-b border-white/5 transition-colors">Giới thiệu</a>
+        <a href="../infra/" class="text-slate-300 hover:text-brand-orange py-2 border-b border-white/5 transition-colors pl-4"><span class="text-brand-orange mr-2">▪</span>IT Infra</a>
+        <a href="./" class="text-brand-orange py-2 border-b border-white/5 transition-colors pl-4 font-bold"><span class="text-brand-orange mr-2">▪</span>IT Solution</a>
+        <a href="../../references/" class="text-slate-300 hover:text-brand-orange py-2 border-b border-white/5 transition-colors">Dự án thực tế</a>
+      </nav>
+      <!-- Mobile Language Switcher -->
+      <div class="mt-8 pt-6 border-t border-white/5">
+        <span class="text-xs text-slate-500 font-semibold uppercase tracking-widest block mb-3">Language</span>
+        <div class="flex gap-4 text-base font-semibold">
+          <a href="../../../business/solution/" class="text-slate-400 hover:text-brand-orange">KO</a>
+          <span class="text-white/20">|</span>
+          <a href="../../../en/business/solution/" class="text-slate-400 hover:text-brand-orange">EN</a>
+          <span class="text-white/20">|</span>
+          <a href="./" class="text-brand-orange">VN</a>
+        </div>
+      </div>
+    </div>
+    <div class="mb-8">
+      <a href="../../contact/" class="block w-full py-4 text-center rounded-xl bg-brand-orange hover:bg-brand-amber text-white font-semibold transition-all duration-300">
+        Liên hệ ngay
+      </a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative pt-48 pb-24 overflow-hidden bg-brand-darkBg flex items-center">
+    <div class="absolute inset-0 z-0">
+      <img src="../../assets/images/hero/solution-bg.png" alt="Technology background" class="w-full h-full object-cover opacity-40 filter grayscale hover:scale-105 transition-transform duration-[10000ms]">
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-darkBg via-brand-darkBg/60 to-transparent"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 text-center w-full">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange/10 border border-brand-orange/20 text-brand-orange text-base font-semibold tracking-widest uppercase mb-6 animate-pulse" data-aos="fade-down">
+        Giải pháp nâng cao
+      </span>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold font-outfit tracking-tight text-white mb-6" data-aos="fade-up" data-aos-delay="100">
+        Triển khai & Tư vấn Giải pháp CNTT
+      </h1>
+      <p class="max-w-2xl mx-auto text-slate-300 text-base leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+        Chúng tôi cung cấp hệ thống sao lưu dữ liệu chuyên nghiệp Veeam và giải pháp giám sát Full-stack SaaS WhaTap cho sự ổn định tối đa.
+      </p>
+    </div>
+  </section>
+
+  <!-- 1. Veeam Backup Section -->
+  <section class="py-24 relative bg-brand-darkBg">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="glass-panel border border-slate-800 rounded-3xl p-8 md:p-12 bg-slate-900/50 shadow-2xl space-y-8" data-aos="fade-up">
+        
+        <div class="space-y-6">
+          <div class="flex flex-wrap items-center gap-4">
+            <span class="text-4xl sm:text-5xl font-black font-outfit text-white tracking-widest">VEEAM</span>
+            <span class="px-3 py-1 rounded-full bg-[#00B159]/10 border border-[#00B159]/20 text-[#00B159] text-xs font-extrabold uppercase tracking-widest">Backup & Replication</span>
+          </div>
+          
+          <h3 class="text-2xl sm:text-3xl font-bold font-outfit text-slate-200">
+            Đảm bảo bảo vệ dữ liệu 100% <span class="text-gradient-orange">Từ ảo hóa đến mã độc Ransomware</span>
+          </h3>
+          
+          <p class="text-slate-300 text-base leading-relaxed max-w-4xl">
+            Tính liên tục của kinh doanh dựa trên khả năng khôi phục dữ liệu nhanh. AppEZ cung cấp giải pháp Veeam để sao lưu, nhân bản dữ liệu ảo hóa (VM) và máy chủ tệp thời gian thực.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-base">
+          <div class="bg-brand-cardBg border border-white/5 rounded-2xl p-6">
+            <h4 class="font-bold text-slate-200 mb-2 flex items-center gap-2">
+              <i data-lucide="layers" class="w-4 h-4 text-brand-orange"></i> Sao lưu máy ảo (VM)
+            </h4>
+            <p class="text-base text-slate-400 leading-relaxed">Sao lưu không cần agent và sao chép nhân bản dữ liệu cho VMware, Hyper-V tốc độ cao.</p>
+          </div>
+          
+          <div class="bg-brand-cardBg border border-white/5 rounded-2xl p-6">
+            <h4 class="font-bold text-slate-200 mb-2 flex items-center gap-2">
+              <i data-lucide="hard-drive" class="w-4 h-4 text-brand-orange"></i> Sao lưu ảnh hệ điều hành OS
+            </h4>
+            <p class="text-base text-slate-400 leading-relaxed">Tích hợp sao lưu ảnh hệ thống OS cho Windows, Linux cùng cơ sở dữ liệu để phục hồi 1-click.</p>
+          </div>
+
+          <div class="bg-brand-cardBg border border-white/5 rounded-2xl p-6">
+            <h4 class="font-bold text-slate-200 mb-2 flex items-center gap-2">
+              <i data-lucide="server-crash" class="w-4 h-4 text-brand-orange"></i> Sao lưu NAS tốc độ cao
+            </h4>
+            <p class="text-base text-slate-400 leading-relaxed">Sao lưu cấp độ tệp CIFS/NFS với cơ chế loại bỏ trùng lặp và nén khối dung lượng.</p>
+          </div>
+
+          <div class="bg-brand-cardBg border border-white/5 rounded-2xl p-6">
+            <h4 class="font-bold text-slate-200 mb-2 flex items-center gap-2">
+              <i data-lucide="shield-check" class="w-4 h-4 text-brand-orange"></i> Xác thực Sandbox & DR
+            </h4>
+            <p class="text-base text-slate-400 leading-relaxed">Tự động kiểm tra phát hiện ransomware trong môi trường sandbox biệt lập để bảo đảm an toàn 100%.</p>
+          </div>
+        </div>
+
+        <div class="pt-4 flex flex-wrap gap-4">
+          <a href="../../contact/?type=solution" class="flex items-center justify-center gap-1.5 px-6 py-3 text-sm font-bold border border-slate-500 text-slate-300 hover:text-white hover:border-slate-300 rounded-xl transition-colors shadow-lg">
+            <i data-lucide="message-square" class="w-4 h-4"></i> Yêu cầu thông tin
+          </a>
+          <a href="https://www.veeam.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-6 py-3 text-sm font-bold text-white bg-brand-orange hover:bg-brand-amber rounded-xl transition-all shadow-lg">
+            Veeam Site <i data-lucide="external-link" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 2. WhaTap Monitoring Section -->
+  <section class="py-24 relative bg-brand-cardBg border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="glass-panel border border-slate-800 rounded-3xl p-8 md:p-12 bg-slate-900/50 shadow-2xl space-y-8" data-aos="fade-up">
+        
+        <div class="space-y-6">
+          <div class="flex flex-wrap items-center gap-4">
+            <span class="text-4xl sm:text-5xl font-black font-outfit text-white tracking-widest">WhaTap</span>
+            <span class="px-3 py-1 rounded-full bg-[#1F71FF]/10 border border-[#1F71FF]/20 text-[#1F71FF] text-xs font-extrabold uppercase tracking-widest">IT Full-Stack Monitoring</span>
+          </div>
+          
+          <h3 class="text-2xl sm:text-3xl font-bold font-outfit text-slate-200">
+            Hệ thống giám sát hiệu năng IT thông minh 365 ngày <span class="text-gradient-orange">Từ ứng dụng đến cơ sở hạ tầng</span>
+          </h3>
+          
+          <p class="text-slate-300 text-base leading-relaxed max-w-4xl">
+            Giám sát ứng dụng và tài nguyên SaaS AI giúp phát hiện sớm các điểm nghẽn. Quản lý máy chủ, database, lưu lượng mạng và Kubernetes từ một màn hình dashboard duy nhất.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-base">
+          <div class="bg-brand-darkBg/60 border border-white/5 rounded-2xl p-6">
+            <h4 class="font-bold text-slate-200 mb-2 flex items-center gap-2">
+              <i data-lucide="bar-chart-2" class="w-4 h-4 text-brand-orange"></i> Giám sát Full-Stack
+            </h4>
+            <p class="text-base text-slate-400 leading-relaxed">Giám sát hiệu năng ứng dụng (APM), CPU/MEM máy chủ, truy vấn DB và lưu lượng mạng.</p>
+          </div>
+          
+          <div class="bg-brand-darkBg/60 border border-white/5 rounded-2xl p-6">
+            <h4 class="font-bold text-slate-200 mb-2 flex items-center gap-2">
+              <i data-lucide="cloud-lightning" class="w-4 h-4 text-brand-orange"></i> Thiết lập SaaS 5 phút
+            </h4>
+            <p class="text-base text-slate-400 leading-relaxed">Chỉ cần cài đặt các agent gọn nhẹ là có thể bắt đầu giám sát ngay mà không cần máy chủ quản trị.</p>
+          </div>
+
+          <div class="bg-brand-darkBg/60 border border-white/5 rounded-2xl p-6">
+            <h4 class="font-bold text-slate-200 mb-2 flex items-center gap-2">
+              <i data-lucide="cpu" class="w-4 h-4 text-brand-orange"></i> Phân tích AI thời gian thực
+            </h4>
+            <p class="text-base text-slate-400 leading-relaxed">Phân tích dữ liệu lịch sử hoạt động và đưa ra cảnh báo sớm các ngưỡng tài nguyên quá tải.</p>
+          </div>
+
+          <div class="bg-brand-darkBg/60 border border-white/5 rounded-2xl p-6">
+            <h4 class="font-bold text-slate-200 mb-2 flex items-center gap-2">
+              <i data-lucide="lock" class="w-4 h-4 text-brand-orange"></i> Mã hóa an toàn bảo mật
+            </h4>
+            <p class="text-base text-slate-400 leading-relaxed">Truyền tải dữ liệu qua mã hóa đầu-cuối an toàn và linh hoạt tùy chỉnh cấu hình cảnh báo.</p>
+          </div>
+        </div>
+
+        <div class="pt-4 flex flex-wrap gap-4">
+          <a href="../../contact/?type=solution" class="flex items-center justify-center gap-1.5 px-6 py-3 text-sm font-bold border border-slate-500 text-slate-300 hover:text-white hover:border-slate-300 rounded-xl transition-colors shadow-lg">
+            <i data-lucide="message-square" class="w-4 h-4"></i> Yêu cầu thông tin
+          </a>
+          <a href="https://www.whatap.io/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-6 py-3 text-sm font-bold text-white bg-brand-orange hover:bg-brand-amber rounded-xl transition-all shadow-lg">
+            WhaTap Site <i data-lucide="external-link" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+      <!-- 3. PNPSECURE Section -->
+  <section class="py-24 relative bg-brand-darkBg">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="glass-panel border border-slate-800 rounded-3xl p-8 md:p-12 bg-slate-900/50 shadow-2xl space-y-8" data-aos="fade-up">
+        
+        <div class="space-y-6">
+          <div class="flex flex-wrap items-center gap-4">
+            <span class="text-4xl sm:text-5xl font-black font-outfit text-white tracking-widest">PNPSECURE</span>
+            <span class="px-3 py-1 rounded-full bg-[#00B159]/10 border border-[#00B159]/20 text-[#00B159] text-xs font-extrabold uppercase tracking-widest">Unified Security</span>
+          </div>
+          
+          <h3 class="text-2xl sm:text-3xl font-bold font-outfit text-slate-200">
+            Bảo mật Thông tin Tích hợp PNPSECURE <span class="text-gradient-orange">Quản lý Truy cập & Tài khoản Tích hợp trên Đám mây</span>
+          </h3>
+          
+          <p class="text-slate-300 text-base leading-relaxed max-w-4xl">
+            Từ môi trường on-premises đến đám mây, chúng tôi mang đến quản trị bảo mật doanh nghiệp hoàn hảo, từ kiểm soát truy cập cơ sở dữ liệu đến bảo mật nhận diện khuôn mặt dựa trên Vision AI.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-base">
+          <div class="bg-brand-cardBg border border-white/5 rounded-2xl p-6">
+            <h4 class="font-bold text-slate-200 mb-2 flex items-center gap-2">
+              <i data-lucide="layers" class="w-4 h-4 text-brand-orange"></i> Unified-IAM
+            </h4>
+            <p class="text-base text-slate-400 leading-relaxed">Quản lý tập trung mọi đường dẫn truy cập và quyền tài khoản trên toàn bộ hạ tầng doanh nghiệp thông qua một nền tảng duy nhất.</p>
+          </div>
+          
+          <div class="bg-brand-cardBg border border-white/5 rounded-2xl p-6">
+            <h4 class="font-bold text-slate-200 mb-2 flex items-center gap-2">
+              <i data-lucide="shield" class="w-4 h-4 text-brand-orange"></i> DBSAFER
+            </h4>
+            <p class="text-base text-slate-400 leading-relaxed">Kiểm soát truy cập toàn diện (DB/Hệ thống/OS) và quản lý vòng đời tài khoản (IM) tự động.</p>
+          </div>
+
+          <div class="bg-brand-cardBg border border-white/5 rounded-2xl p-6">
+            <h4 class="font-bold text-slate-200 mb-2 flex items-center gap-2">
+              <i data-lucide="file-text" class="w-4 h-4 text-brand-orange"></i> INFOSAFER
+            </h4>
+            <p class="text-base text-slate-400 leading-relaxed">Giám sát truy cập dữ liệu cá nhân theo thời gian thực, chống giả mạo bằng lưu trữ WORM và quy trình giải trình tự động.</p>
+          </div>
+
+          <div class="bg-brand-cardBg border border-white/5 rounded-2xl p-6">
+            <h4 class="font-bold text-slate-200 mb-2 flex items-center gap-2">
+              <i data-lucide="lock" class="w-4 h-4 text-brand-orange"></i> FaceLocker
+            </h4>
+            <p class="text-base text-slate-400 leading-relaxed">Xác thực khuôn mặt thời gian thực dựa trên Vision AI giúp triển khai Zero Trust và ngăn chặn rò rỉ màn hình.</p>
+          </div>
+        </div>
+
+        <div class="pt-4 flex flex-wrap gap-4">
+          <a href="../../contact/?type=solution" class="flex items-center justify-center gap-1.5 px-6 py-3 text-sm font-bold border border-slate-500 text-slate-300 hover:text-white hover:border-slate-300 rounded-xl transition-colors">
+            <i data-lucide="message-square" class="w-4 h-4"></i> Yêu cầu thông tin
+          </a>
+          <a href="https://www.pnpsecure.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-6 py-3 text-sm font-bold text-white bg-brand-orange hover:bg-brand-amber rounded-xl transition-all">
+            Trang chủ PNPSECURE <i data-lucide="external-link" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- IT Consulting 5 Steps -->
+
+  <section id="consulting-process" class="py-24 relative bg-brand-cardBg border-y border-white/5 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <span class="text-brand-orange font-bold text-base uppercase tracking-widest mb-3 block">04. Tư vấn toàn diện</span>
+        <h2 class="text-3xl sm:text-4xl font-bold font-outfit text-white tracking-tight mb-6">
+          Quy trình tư vấn IT <span class="text-brand-orange">Toàn diện của AppEZ</span>
+        </h2>
+        <p class="text-slate-300 text-base leading-relaxed">
+          Hỗ trợ doanh nghiệp từ khâu lập kế hoạch đến thiết kế kiến trúc, triển khai và bảo trì SLA với quy trình 5 bước.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 items-stretch relative" data-aos="zoom-in">
+        
+        <!-- Desktop Connector Line -->
+        <div class="hidden md:block absolute top-[44px] left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-brand-orange/30 via-brand-amber/30 to-brand-orange/30 z-0"></div>
+
+        <!-- STEP 01 -->
+        <div class="glass-panel border border-white/5 rounded-2xl p-6 text-center flex flex-col justify-between neon-glow-hover relative z-10 bg-brand-darkBg group transition-all duration-300 cursor-pointer hover:border-orange-500">
+          <div>
+            <div class="w-14 h-14 rounded-full bg-brand-cardBg border-2 border-slate-700 flex flex-col items-center justify-center mx-auto mb-6 shadow-lg shrink-0 group-hover:bg-orange-500 group-hover:text-white group-hover:border-orange-500 transition-all duration-300">
+              <span class="text-[9px] font-black text-slate-500 group-hover:text-white tracking-widest uppercase transition-colors duration-300">Step 01</span>
+              <span class="text-sm font-bold text-white mt-0.5">Lập kế hoạch</span>
+            </div>
+            <h4 class="text-base font-extrabold text-slate-200 mb-2">Định hướng hệ thống</h4>
+            <p class="text-base text-slate-400 leading-relaxed">
+              Định nghĩa kế hoạch tổng thể cơ sở hạ tầng trung và dài hạn cũng như định hướng kiến trúc cốt lõi dựa trên các kịch bản mở rộng kinh doanh thông qua tham vấn chặt chẽ trước.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-white/5 text-xs text-slate-500 group-hover:text-orange-500 font-semibold transition-colors duration-300">Tư vấn & Lập kế hoạch</div>
+        </div>
+
+        <!-- STEP 02 -->
+        <div class="glass-panel border border-white/5 rounded-2xl p-6 text-center flex flex-col justify-between neon-glow-hover relative z-10 bg-brand-darkBg group transition-all duration-300 cursor-pointer hover:border-orange-500">
+          <div>
+            <div class="w-14 h-14 rounded-full bg-brand-cardBg border-2 border-slate-700 flex flex-col items-center justify-center mx-auto mb-6 shadow-lg shrink-0 group-hover:bg-orange-500 group-hover:text-white group-hover:border-orange-500 transition-all duration-300">
+              <span class="text-[9px] font-black text-slate-500 group-hover:text-white tracking-widest uppercase transition-colors duration-300">Step 02</span>
+              <span class="text-sm font-bold text-white mt-0.5">Kiểm tra</span>
+            </div>
+            <h4 class="text-base font-extrabold text-slate-200 mb-2">Đánh giá hệ thống</h4>
+            <p class="text-base text-slate-400 leading-relaxed">
+              Thực hiện chẩn đoán chính xác tình trạng vận hành hạ tầng bao gồm phần cứng, hệ điều hành và tuân thủ bảo mật để xác định các rủi ro tiềm ẩn.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-white/5 text-xs text-slate-500 group-hover:text-orange-500 font-semibold transition-colors duration-300">Kiểm tra & Khảo sát thực địa</div>
+        </div>
+
+        <!-- STEP 03 -->
+        <div class="glass-panel border border-white/5 rounded-2xl p-6 text-center flex flex-col justify-between neon-glow-hover relative z-10 bg-brand-darkBg group transition-all duration-300 cursor-pointer hover:border-orange-500">
+          <div>
+            <div class="w-14 h-14 rounded-full bg-brand-cardBg border-2 border-slate-700 flex flex-col items-center justify-center mx-auto mb-6 shadow-lg shrink-0 group-hover:bg-orange-500 group-hover:text-white group-hover:border-orange-500 transition-all duration-300">
+              <span class="text-[9px] font-black text-slate-500 group-hover:text-white tracking-widest uppercase transition-colors duration-300">Step 03</span>
+              <span class="text-sm font-bold text-white mt-0.5">Thiết kế</span>
+            </div>
+            <h4 class="text-base font-extrabold text-slate-200 mb-2">Thiết kế kiến trúc</h4>
+            <p class="text-base text-slate-400 leading-relaxed">
+              Thiết lập các chiến lược cải tiến và triển khai hạ tầng tối ưu đáp ứng hoàn hảo các yêu cầu kinh doanh dựa trên dữ liệu chẩn đoán.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-white/5 text-xs text-slate-500 group-hover:text-orange-500 font-semibold transition-colors duration-300">Thiết kế & Kiến trúc hạ tầng</div>
+        </div>
+
+        <!-- STEP 04 -->
+        <div class="glass-panel border border-white/5 rounded-2xl p-6 text-center flex flex-col justify-between neon-glow-hover relative z-10 bg-brand-darkBg group transition-all duration-300 cursor-pointer hover:border-orange-500">
+          <div>
+            <div class="w-14 h-14 rounded-full bg-brand-cardBg border-2 border-slate-700 flex flex-col items-center justify-center mx-auto mb-6 shadow-lg shrink-0 group-hover:bg-orange-500 group-hover:text-white group-hover:border-orange-500 transition-all duration-300">
+              <span class="text-[9px] font-black text-slate-500 group-hover:text-white tracking-widest uppercase transition-colors duration-300">Step 04</span>
+              <span class="text-sm font-bold text-white mt-0.5">Triển khai</span>
+            </div>
+            <h4 class="text-base font-extrabold text-slate-200 mb-2">Tích hợp hệ thống</h4>
+            <p class="text-base text-slate-400 leading-relaxed">
+              Triển khai hệ thống an toàn thông qua di trú dữ liệu, gắn kết phần cứng và tối ưu hóa hệ điều hành được thực hiện bởi các kỹ sư giàu kinh nghiệm.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-white/5 text-xs text-slate-500 group-hover:text-orange-500 font-semibold transition-colors duration-300">Tích hợp & Triển khai lắp đặt</div>
+        </div>
+
+        <!-- STEP 05 -->
+        <div class="glass-panel border border-white/5 rounded-2xl p-6 text-center flex flex-col justify-between neon-glow-hover relative z-10 bg-brand-darkBg group transition-all duration-300 cursor-pointer hover:border-orange-500">
+          <div>
+            <div class="w-14 h-14 rounded-full bg-brand-cardBg border-2 border-slate-700 flex flex-col items-center justify-center mx-auto mb-6 shadow-lg shrink-0 group-hover:bg-orange-500 group-hover:text-white group-hover:border-orange-500 transition-all duration-300">
+              <span class="text-[9px] font-black text-slate-500 group-hover:text-white tracking-widest uppercase transition-colors duration-300">Step 05</span>
+              <span class="text-sm font-bold text-white mt-0.5">SLA</span>
+            </div>
+            <h4 class="text-base font-extrabold text-slate-200 mb-2">Bảo trì vận hành</h4>
+            <p class="text-base text-slate-400 leading-relaxed">
+              Đảm bảo tính ổn định của hệ thống thông qua giám sát thời gian thực và hỗ trợ kỹ thuật chuyên trách, cung cấp dịch vụ quản lý hạ tầng liên tục.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-white/5 text-xs text-slate-500 group-hover:text-orange-500 font-semibold transition-colors duration-300">Hỗ trợ SLA & Kiểm tra phòng ngừa</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-brand-darkBg text-slate-500 py-16 px-6 md:px-12 border-t border-white/5">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        
+        <!-- Footer Col 1 -->
+        <div class="md:col-span-2">
+          <a href="../" class="text-xl font-bold text-white tracking-tight font-outfit mb-4 inline-block">
+            App<span class="text-brand-orange">EZ</span> VINA
+          </a>
+          <p class="text-base text-slate-300 leading-relaxed mb-6 max-w-sm">
+            Đối tác tin cậy cung cấp dịch vụ hạ tầng IT tích hợp, thiết kế hệ thống và tư vấn dựa trên kỹ thuật xuất sắc.
+          </p>
+        </div>
+
+        <!-- Footer Col 2 -->
+        <div>
+          <h4 class="text-base font-bold text-slate-300 uppercase tracking-widest mb-4">Liên kết nhanh</h4>
+          <ul class="space-y-3 text-base">
+            <li><a href="../company/" class="hover:text-brand-orange transition-colors">Về chúng tôi</a></li>
+            <li><a href="../business/infra/" class="hover:text-brand-orange transition-colors">Giải pháp Hạ tầng IT</a></li>
+            <li><a href="../business/solution/" class="hover:text-brand-orange transition-colors">Giải pháp Công nghệ</a></li>
+            <li><a href="../references/" class="hover:text-brand-orange transition-colors">Dự án thực tế</a></li>
+          </ul>
+        </div>
+
+        <!-- Footer Col 3 -->
+        <div>
+          <h4 class="text-base font-bold text-slate-300 uppercase tracking-widest mb-4">Thông tin văn phòng</h4>
+            <div class="space-y-6">
+              
+                            <address class="not-italic space-y-3 text-base leading-relaxed font-outfit border-t border-white/5 pt-4">
+                <p class="flex items-start gap-2.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="map-pin" aria-hidden="true" class="lucide lucide-map-pin w-4.5 h-4.5 text-brand-orange shrink-0"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  <span class="text-slate-300 break-keep">Văn phòng Việt Nam : Phòng 2-3, Văn phòng Avalon, Tầng 22, Tòa nhà PVI, Phường Yên Hòa, Quận Cầu Giấy, Thành phố Hà Nội</span>
+                </p>
+              <p class="flex items-center gap-2.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone" aria-hidden="true" class="lucide lucide-phone w-4.5 h-4.5 text-brand-orange shrink-0"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
+              <span class="text-slate-300 break-keep">T. +84 886 437 978</span>
+            </p></address>
+            </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-base gap-4">
+        <p>© 2026 APPEZ VINA Co., Ltd.</p>
+        <div class="flex gap-6">
+          <a href="../privacy/" class="hover:text-brand-orange transition-colors font-bold text-slate-300">Chính sách bảo mật</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <!-- Custom Common JS -->
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>
+
+
+

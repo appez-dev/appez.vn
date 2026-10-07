@@ -1,0 +1,475 @@
+﻿<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giới thiệu - AppEZ</title>
+  <meta name="description" content="Tìm hiểu sứ mệnh, giá trị cốt lõi, năng lực kỹ thuật và đối tác công nghệ toàn cầu của AppEZ. Chúng tôi cung cấp hạ tầng tối ưu dựa trên kỹ thuật xuất sắc.">
+  <!-- Pretendard Font CDN -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#f97316', /* orange-500 */
+              amber: '#ea580c',  /* orange-600 */
+              darkBg: '#0f172a', /* slate-900 */
+              cardBg: '#1e293b', /* slate-800 */
+              border: '#334155'  /* slate-700 */
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+
+  <!-- SEO Multilingual Link Tags -->
+  <link rel="alternate" hreflang="ko" href="https://appez.co.kr/company/" />
+  <link rel="alternate" hreflang="en" href="https://appez.co.kr/en/company/" />
+  <link rel="alternate" hreflang="vi" href="https://appez.co.kr/vn/company/" />
+  <link rel="alternate" hreflang="x-default" href="https://appez.co.kr/company/" />
+</head>
+<body class="bg-brand-darkBg text-slate-300 selection:bg-brand-orange selection:text-white leading-relaxed text-base">
+
+  <!-- Navigation Header -->
+  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent py-4 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <!-- Logo -->
+      <a href="../" class="flex items-center gap-2 group">
+        <span class="text-2xl font-extrabold tracking-tight font-outfit text-white">
+          App<span class="text-brand-orange group-hover:text-brand-amber transition-colors">EZ</span> VINA
+        </span>
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center gap-8 text-base font-medium tracking-wide">
+        <a href="./" class="text-brand-orange font-bold border-b-2 border-brand-orange pb-1">Giới thiệu</a>
+        
+        <!-- Dropdown Menu -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 text-slate-300 hover:text-brand-orange transition-colors focus:outline-none">
+            Lĩnh vực <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </button>
+          <div class="absolute top-full -left-4 mt-2 w-48 rounded-lg shadow-xl bg-brand-cardBg border border-white/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2">
+            <a href="../business/infra/" class="block px-4 py-2 text-slate-300 hover:bg-brand-orange hover:text-white transition-colors">Hạ tầng IT</a>
+            <a href="../business/solution/" class="block px-4 py-2 text-slate-300 hover:bg-brand-orange hover:text-white transition-colors">Giải pháp IT</a>
+          </div>
+        </div>
+
+        <a href="../references/" class="text-slate-300 hover:text-brand-orange transition-colors">Dự án thực tế</a>
+      </nav>
+
+      <!-- Right Nav Buttons -->
+      <div class="hidden md:flex items-center gap-6">
+        <!-- Language Switcher -->
+        <div class="relative group">
+          <button class="flex items-center gap-1.5 text-slate-300 hover:text-brand-orange transition-colors focus:outline-none text-base font-semibold">
+            <i data-lucide="globe" class="w-4.5 h-4.5"></i> <span class="ml-1 uppercase">VN</span> <i data-lucide="chevron-down" class="w-3 h-3"></i>
+          </button>
+          <div class="absolute right-0 top-full mt-2 w-24 rounded-lg shadow-xl bg-brand-cardBg border border-white/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-1 text-sm font-medium z-50">
+            <a href="../../company/" class="block px-4 py-2 text-slate-300 hover:text-brand-orange hover:bg-white/5 transition-colors">KO</a>
+            <a href="../../en/company/" class="block px-4 py-2 text-slate-300 hover:text-brand-orange hover:bg-white/5 transition-colors">EN</a>
+            <a href="./" class="block px-4 py-2 text-brand-orange font-bold hover:bg-white/5 transition-colors">VN</a>
+          </div>
+        </div>
+
+        <a href="../contact/" class="px-5 py-2 rounded-full bg-brand-orange hover:bg-brand-amber text-white text-base font-semibold tracking-wider transition-all duration-300 shadow-md shadow-brand-orange/20">
+          Liên hệ
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none hover:text-brand-orange transition-colors">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-menu" class="fixed inset-0 z-50 hidden bg-brand-darkBg/95 backdrop-blur-lg flex flex-col justify-between p-6">
+    <div>
+      <div class="flex items-center justify-between mb-8">
+        <a href="../" class="text-2xl font-extrabold tracking-tight font-outfit text-white">
+          App<span class="text-brand-orange">EZ</span> VINA
+        </a>
+        <button id="mobile-menu-close-btn" class="text-white hover:text-brand-orange transition-colors">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col gap-6 text-lg font-medium">
+        <a href="./" class="text-brand-orange py-2 border-b border-white/5 transition-colors font-bold">Giới thiệu</a>
+        <a href="../business/infra/" class="text-slate-300 hover:text-brand-orange py-2 border-b border-white/5 transition-colors pl-4"><span class="text-brand-orange mr-2">▪</span>Hạ tầng IT</a>
+        <a href="../business/solution/" class="text-slate-300 hover:text-brand-orange py-2 border-b border-white/5 transition-colors pl-4"><span class="text-brand-orange mr-2">▪</span>Giải pháp IT</a>
+        <a href="../references/" class="text-slate-300 hover:text-brand-orange py-2 border-b border-white/5 transition-colors">Dự án thực tế</a>
+      </nav>
+      <!-- Mobile Language Switcher -->
+      <div class="mt-8 pt-6 border-t border-white/5">
+        <span class="text-xs text-slate-500 font-semibold uppercase tracking-widest block mb-3">Language</span>
+        <div class="flex gap-4 text-base font-semibold">
+          <a href="../../company/" class="text-slate-400 hover:text-brand-orange">KO</a>
+          <span class="text-white/20">|</span>
+          <a href="../../en/company/" class="text-slate-400 hover:text-brand-orange">EN</a>
+          <span class="text-white/20">|</span>
+          <a href="./" class="text-brand-orange">VN</a>
+        </div>
+      </div>
+    </div>
+    <div class="mb-8">
+      <a href="../contact/" class="block w-full py-4 text-center rounded-xl bg-brand-orange hover:bg-brand-amber text-white font-semibold transition-all duration-300">
+        Liên hệ ngay
+      </a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative pt-48 pb-24 overflow-hidden bg-brand-darkBg flex items-center">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80" alt="Team collaborating" class="w-full h-full object-cover opacity-15 filter grayscale hover:scale-105 transition-transform duration-[10000ms]">
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-darkBg via-brand-darkBg/60 to-transparent"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 text-center w-full">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange/10 border border-brand-orange/20 text-brand-orange text-base font-semibold tracking-widest uppercase mb-6 animate-pulse" data-aos="fade-down">
+        Chúng tôi là ai
+      </span>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold font-outfit tracking-tight text-white mb-6" data-aos="fade-up" data-aos-delay="100">
+        Giới thiệu về AppEZ
+      </h1>
+      <p class="max-w-2xl mx-auto text-slate-300 text-base leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+        AppEZ là chuyên gia thiết kế và tích hợp hạ tầng IT doanh nghiệp hàng đầu, mang đến dịch vụ kỹ thuật tối ưu và giải pháp lưu trữ ổn định.
+      </p>
+    </div>
+  </section>
+
+  <!-- Corporate Profile -->
+  <section class="py-24 relative bg-brand-darkBg">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        
+        <!-- Left Column: Intro -->
+        <div class="lg:col-span-5" data-aos="fade-right">
+          <span class="text-brand-orange font-bold text-base uppercase tracking-widest mb-3 block">Hồ sơ doanh nghiệp</span>
+          <h2 class="text-3xl sm:text-4xl font-bold font-outfit text-white tracking-tight mb-8">
+            Kiến tạo nền tảng thành công<br>
+            <span class="text-gradient-orange">Bằng chữ tín và kỹ thuật cao</span>
+          </h2>
+          <p class="text-slate-300 text-base leading-relaxed mb-6">
+            Kể từ khi thành lập vào năm 2012, AppEZ đã phát triển vững mạnh dựa trên năng lực chuyên môn xuất sắc. Đội ngũ kỹ sư dày dặn kinh nghiệm thực tế của chúng tôi luôn tận tâm xây dựng hệ thống IT tối ưu cho các doanh nghiệp, tổ chức tài chính và cơ quan công quyền.
+          </p>
+          <p class="text-slate-300 text-base leading-relaxed">
+            Chúng tôi cung cấp giải pháp toàn diện—từ tư vấn IT, tích hợp hệ thống (SI) đến các hệ thống sao lưu dữ liệu tính sẵn sàng cao, giám sát hiệu năng 24/7 và di dời/tiêu hủy thiết bị an toàn.
+          </p>
+        </div>
+
+        <!-- Right Column: Info Table -->
+        <div class="lg:col-span-7 space-y-6" data-aos="fade-left">
+          <div class="glass-panel rounded-2xl p-8 border border-white/5 space-y-6 bg-brand-cardBg">
+            <h3 class="text-xl font-bold font-outfit border-b border-white/10 pb-4 flex items-center gap-2 text-white">
+              <i data-lucide="info" class="w-5 h-5 text-brand-orange"></i> Tổng quan
+            </h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8 text-base">
+              <div class="border-b border-white/5 pb-3">
+                <span class="text-slate-400 font-semibold uppercase tracking-wider block mb-1">Tên công ty</span>
+                <span class="text-slate-200 font-medium">Công ty Cổ phần AppEZ (AppEZ Co., Ltd.)</span>
+              </div>
+              <div class="border-b border-white/5 pb-3">
+                <span class="text-slate-400 font-semibold uppercase tracking-wider block mb-1">Đại diện pháp luật</span>
+                <span class="text-slate-200 font-medium">Hwang Jae-Kyu</span>
+              </div>
+              <div class="border-b border-white/5 pb-3">
+                <span class="text-slate-400 font-semibold uppercase tracking-wider block mb-1">Ngày thành lập</span>
+                <span class="text-slate-200 font-medium">Ngày 1 tháng 2 năm 2012</span>
+              </div>
+              <div class="border-b border-white/5 pb-3">
+                <span class="text-slate-400 font-semibold uppercase tracking-wider block mb-1">Vốn điều lệ</span>
+                <span class="text-slate-200 font-medium">480 Triệu KRW</span>
+              </div>
+              <div class="border-b border-white/5 pb-3 sm:col-span-2">
+                <span class="text-slate-400 font-semibold uppercase tracking-wider block mb-1">Trụ sở chính</span>
+                <span class="text-slate-200 font-medium">B-907~908, Woolim Blue9, 583 Yangcheon-ro, Gangseo-gu, Seoul, Hàn Quốc</span>
+              </div>
+              <div class="sm:col-span-2">
+                <span class="text-slate-400 font-semibold uppercase tracking-wider block mb-1">Lĩnh vực hoạt động chính</span>
+                <span class="text-slate-200 font-medium leading-relaxed block mt-1">
+                  Tích hợp hệ thống hạ tầng IT (SI), Dịch vụ bảo trì vận hành 24/7/365, Tích hợp Cloud HCI, Giải pháp công nghệ nâng cao (Sao lưu/Khôi phục Veeam, giám sát WhaTap), Tư vấn IT, Di dời và tiêu hủy thiết bị an toàn.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission, Vision, Core Values -->
+  <section class="py-24 relative bg-brand-cardBg border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <span class="text-brand-orange font-bold text-base uppercase tracking-widest mb-3 block">Giá trị cốt lõi</span>
+        <h2 class="text-3xl sm:text-4xl font-bold font-outfit text-white tracking-tight mb-6">
+          Sứ mệnh & <span class="text-brand-orange">Giá trị cốt lõi của AppEZ</span>
+        </h2>
+        <p class="text-slate-300 text-base leading-relaxed">
+          Triết lý định hình các quyết định và thúc đẩy chúng tôi mang lại thành công tối ưu cho khách hàng, đồng thời đảm bảo sự hài lòng của nhân viên.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <!-- MISSION -->
+        <div class="glass-panel rounded-2xl p-8 border border-white/5 flex flex-col justify-between bg-brand-darkBg" data-aos="zoom-in">
+          <div>
+            <span class="px-3 py-1 rounded-full bg-brand-orange/10 border border-brand-orange/20 text-brand-orange text-xs font-bold tracking-widest uppercase mb-4 inline-block">Sứ mệnh</span>
+            <h3 class="text-2xl font-bold font-outfit text-white mb-4">Mang lại cuộc sống hạnh phúc thông qua dịch vụ IT chất lượng cao</h3>
+          </div>
+          <p class="text-base text-slate-300 leading-relaxed mt-4">
+            Chúng tôi xây dựng môi trường IT tối ưu nhằm bảo vệ an toàn tài sản dữ liệu, giúp doanh nghiệp tập trung hoàn toàn vào sự tăng trưởng bứt phá.
+          </p>
+        </div>
+
+        <!-- VISION -->
+        <div class="glass-panel rounded-2xl p-8 border border-white/5 flex flex-col justify-between bg-brand-darkBg" data-aos="zoom-in" data-aos-delay="100">
+          <div>
+            <span class="px-3 py-1 rounded-full bg-brand-amber/10 border border-brand-amber/20 text-brand-amber text-xs font-bold tracking-widest uppercase mb-4 inline-block">Tầm nhìn</span>
+            <h3 class="text-2xl font-bold font-outfit text-white mb-4">Nhân đôi giá trị của khách hàng, nhân đôi hạnh phúc của tập thể nhân viên</h3>
+          </div>
+          <p class="text-base text-slate-300 leading-relaxed mt-4">
+            Giúp đối tác nhân đôi hiệu suất vận hành, đồng thời không ngừng đầu tư phát triển năng lực chuyên môn, phúc lợi và sự hài lòng của đội ngũ nhân sự nội bộ.
+          </p>
+        </div>
+      </div>
+
+      <!-- 5 Core Values -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div class="glass-panel rounded-xl p-6 border border-white/5 neon-glow-hover flex flex-col items-center text-center bg-brand-darkBg animate-hover-scale" data-aos="fade-up">
+          <div class="w-12 h-12 rounded-full bg-brand-orange/10 border border-brand-orange/20 flex items-center justify-center text-brand-orange mb-4 shadow-md">
+            <i data-lucide="scale" class="w-5 h-5"></i>
+          </div>
+          <h4 class="text-lg font-bold text-slate-200 mb-3">Trung thực</h4>
+          <p class="text-base text-slate-300 leading-relaxed">Tuân thủ triệt để các nguyên tắc đạo đức nghề nghiệp và kinh doanh minh bạch.</p>
+        </div>
+
+        <div class="glass-panel rounded-xl p-6 border border-white/5 neon-glow-hover flex flex-col items-center text-center bg-brand-darkBg animate-hover-scale" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-12 h-12 rounded-full bg-brand-orange/10 border border-brand-orange/20 flex items-center justify-center text-brand-orange mb-4 shadow-md">
+            <i data-lucide="link" class="w-5 h-5"></i>
+          </div>
+          <h4 class="text-lg font-bold text-slate-200 mb-3">Lòng tin</h4>
+          <p class="text-base text-slate-300 leading-relaxed">Đặt sự thành công lâu dài của khách hàng và mối quan hệ đối tác lên hàng đầu.</p>
+        </div>
+
+        <div class="glass-panel rounded-xl p-6 border border-white/5 neon-glow-hover flex flex-col items-center text-center bg-brand-darkBg animate-hover-scale" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-12 h-12 rounded-full bg-brand-orange/10 border border-brand-orange/20 flex items-center justify-center text-brand-orange mb-4 shadow-md">
+            <i data-lucide="heart" class="w-5 h-5"></i>
+          </div>
+          <h4 class="text-lg font-bold text-slate-200 mb-3">Con người</h4>
+          <p class="text-base text-slate-300 leading-relaxed">Tôn trọng và đầu tư phát triển năng lực, phúc lợi của tập thể nhân sự.</p>
+        </div>
+
+        <div class="glass-panel rounded-xl p-6 border border-white/5 neon-glow-hover flex flex-col items-center text-center bg-brand-darkBg animate-hover-scale" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-12 h-12 rounded-full bg-brand-orange/10 border border-brand-orange/20 flex items-center justify-center text-brand-orange mb-4 shadow-md">
+            <i data-lucide="zap" class="w-5 h-5"></i>
+          </div>
+          <h4 class="text-lg font-bold text-slate-200 mb-3">Đổi mới</h4>
+          <p class="text-base text-slate-300 leading-relaxed">Không ngừng tiếp nhận thử thách công nghệ mới và thúc đẩy hiện thực hóa.</p>
+        </div>
+
+        <div class="glass-panel rounded-xl p-6 border border-white/5 neon-glow-hover flex flex-col items-center text-center bg-brand-darkBg animate-hover-scale" data-aos="fade-up" data-aos-delay="400">
+          <div class="w-12 h-12 rounded-full bg-brand-orange/10 border border-brand-orange/20 flex items-center justify-center text-brand-orange mb-4 shadow-md">
+            <i data-lucide="smile" class="w-5 h-5"></i>
+          </div>
+          <h4 class="text-lg font-bold text-slate-200 mb-3">Tự chủ</h4>
+          <p class="text-base text-slate-300 leading-relaxed">Làm việc chủ động và có trách nhiệm cá nhân cao đối với các kết quả đạt được.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Summary (Timeline Replacer) -->
+  <section class="py-24 relative bg-brand-darkBg">
+    <div class="max-w-5xl mx-auto px-6 md:px-12">
+      <div class="glass-panel rounded-3xl p-10 md:p-12 border border-brand-orange/20 bg-brand-orange/5 relative overflow-hidden bg-brand-cardBg" data-aos="fade-up">
+        <!-- Glow Effect -->
+        <div class="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-brand-orange/10 blur-3xl"></div>
+        
+        <span class="text-brand-orange font-bold text-base uppercase tracking-widest mb-3 block">Chặng đường phát triển</span>
+        <h2 class="text-2xl sm:text-3xl font-bold font-outfit text-white tracking-tight mb-6">Hành trình từ năm 2012</h2>
+        
+        <div class="space-y-6 text-base text-slate-300 leading-relaxed">
+          <p>
+            <strong>Từ năm 2012,</strong> AppEZ đã khẳng định vị thế là nhà cung cấp hạ tầng IT đáng tin cậy. Trong hơn một thập kỷ qua, chúng tôi đã thiết lập mối quan hệ hợp tác bền vững với các tập đoàn công nghệ hàng đầu thế giới như <strong>IBM, Dell Technologies, Lenovo, HPE, Nutanix và Veeam</strong>.
+          </p>
+          <p>
+            Sở hữu đội ngũ kỹ sư có chứng chỉ chuyên môn cao, chúng tôi đã thực hiện thành công hơn <strong>150 dự án doanh nghiệp</strong>, giúp khách hàng xây dựng kiến trúc dữ liệu an toàn và tính sẵn sàng cao. Chúng tôi tự hào nắm giữ các thứ hạng đối tác chính thức như <strong>IBM Business Partner Gold Level</strong> và <strong>Dell Gold Partner</strong>.
+          </p>
+          <p>
+            Là nhà thầu thông tin liên lạc được cấp phép, chúng tôi tiếp tục mở rộng năng lực điện toán đám mây, dịch vụ hạ tầng siêu hội tụ (HCI) và giám sát hiệu năng IT thông minh, thích ứng tốt trước kỷ nguyên Hybrid Cloud hiện đại.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Strength & Engineering Stats (Org Chart Replacer) -->
+  <section class="py-24 relative bg-brand-cardBg border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <span class="text-brand-orange font-bold text-base uppercase tracking-widest mb-3 block">Năng lực kỹ thuật</span>
+        <h2 class="text-3xl sm:text-4xl font-bold font-outfit text-white tracking-tight mb-6">
+          Kỹ thuật vượt trội của AppEZ
+        </h2>
+        <p class="text-slate-300 text-base leading-relaxed">
+          AppEZ tập trung phát triển công nghệ, với đại đa số nhân sự là các kỹ sư thực địa có kinh nghiệm dày dặn.
+        </p>
+      </div>
+
+      <!-- Infographic Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- 62% Professional Engineers -->
+        <div class="glass-panel border border-brand-orange/20 rounded-2xl p-8 bg-brand-darkBg/60 text-center flex flex-col justify-between" data-aos="fade-right">
+          <div>
+            <div class="text-5xl md:text-6xl font-black font-outfit text-brand-orange mb-4">62%</div>
+            <h3 class="text-xl font-bold text-white mb-3">Kỹ sư chuyên môn</h3>
+            <p class="text-base text-slate-300 leading-relaxed">
+              Hơn một nửa đội ngũ nhân sự là các kỹ sư hệ thống chuyên nghiệp, tập trung thiết kế phần cứng, hạ tầng siêu hội tụ HCI và tích hợp Cloud.
+            </p>
+          </div>
+          <div class="w-full bg-slate-900 rounded-full h-2 mt-6">
+            <div class="bg-gradient-to-r from-brand-orange to-brand-amber h-2 rounded-full" style="width: 62%"></div>
+          </div>
+        </div>
+
+        <!-- 48% Top-tier Experts -->
+        <div class="glass-panel border border-brand-orange/20 rounded-2xl p-8 bg-brand-darkBg/60 text-center flex flex-col justify-between" data-aos="fade-left">
+          <div>
+            <div class="text-5xl md:text-6xl font-black font-outfit text-brand-orange mb-4">48%</div>
+            <h3 class="text-xl font-bold text-white mb-3">Chuyên gia cao cấp</h3>
+            <p class="text-base text-slate-300 leading-relaxed">
+              Gần một nửa đội ngũ kỹ sư đạt trình độ chuyên gia cao cấp, sở hữu các chứng chỉ danh tiếng toàn cầu như IBM Storage Expert, Dell Certified Specialist và VMCE.
+            </p>
+          </div>
+          <div class="w-full bg-slate-900 rounded-full h-2 mt-6">
+            <div class="bg-gradient-to-r from-brand-orange to-brand-amber h-2 rounded-full" style="width: 48%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global IT Partnerships (Badges Replacer) -->
+  <section class="py-24 relative bg-brand-darkBg">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <span class="text-brand-orange font-bold text-base uppercase tracking-widest mb-3 block">Hợp tác công nghệ</span>
+        <h2 class="text-3xl sm:text-4xl font-bold font-outfit text-white tracking-tight mb-6">
+          Đối tác công nghệ toàn cầu
+        </h2>
+        <p class="text-slate-300 text-base leading-relaxed">
+          Thông qua mối quan hệ đối tác chiến lược, chúng tôi cung cấp giải pháp hạ tầng và phần mềm doanh nghiệp tiên tiến nhất.
+        </p>
+      </div>
+
+      <!-- Partner Logo Grid (White rounded cards for maximum visibility) -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 max-w-5xl mx-auto">
+        <!-- IBM -->
+        <div class="bg-white rounded-xl shadow-sm p-6 flex flex-col items-center justify-center h-28 border border-white/10 hover:shadow-md transition-all duration-300">
+          <span class="text-slate-900 font-black font-outfit text-lg tracking-widest">IBM</span>
+          <span class="text-[9px] font-bold text-brand-orange mt-1 uppercase tracking-wider">Gold Partner</span>
+        </div>
+        <!-- DELL -->
+        <div class="bg-white rounded-xl shadow-sm p-6 flex flex-col items-center justify-center h-28 border border-white/10 hover:shadow-md transition-all duration-300">
+          <span class="text-slate-900 font-black font-outfit text-lg tracking-widest">DELL Tech</span>
+          <span class="text-[9px] font-bold text-brand-orange mt-1 uppercase tracking-wider">Gold Partner</span>
+        </div>
+        <!-- LENOVO -->
+        <div class="bg-white rounded-xl shadow-sm p-6 flex flex-col items-center justify-center h-28 border border-white/10 hover:shadow-md transition-all duration-300">
+          <span class="text-slate-900 font-black font-outfit text-lg tracking-widest">LENOVO</span>
+          <span class="text-[9px] font-bold text-slate-500 mt-1 uppercase tracking-wider">Partner</span>
+        </div>
+        <!-- NUTANIX -->
+        <div class="bg-white rounded-xl shadow-sm p-6 flex flex-col items-center justify-center h-28 border border-white/10 hover:shadow-md transition-all duration-300">
+          <span class="text-slate-900 font-black font-outfit text-lg tracking-widest font-outfit">NUTANIX</span>
+          <span class="text-[9px] font-bold text-brand-orange mt-1 uppercase tracking-wider">HCI Partner</span>
+        </div>
+        <!-- VEEAM -->
+        <div class="bg-white rounded-xl shadow-sm p-6 flex flex-col items-center justify-center h-28 border border-white/10 hover:shadow-md transition-all duration-300">
+          <span class="text-slate-900 font-black font-outfit text-lg tracking-widest">VEEAM</span>
+          <span class="text-[9px] font-bold text-brand-orange mt-1 uppercase tracking-wider">Backup Partner</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-brand-darkBg text-slate-500 py-16 px-6 md:px-12 border-t border-white/5">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        
+        <!-- Footer Col 1 -->
+        <div class="md:col-span-2">
+          <a href="../" class="text-xl font-bold text-white tracking-tight font-outfit mb-4 inline-block">
+            App<span class="text-brand-orange">EZ</span> VINA
+          </a>
+          <p class="text-base text-slate-300 leading-relaxed mb-6 max-w-sm">
+            Đối tác tin cậy cung cấp dịch vụ hạ tầng IT tích hợp, thiết kế hệ thống và tư vấn dựa trên kỹ thuật xuất sắc.
+          </p>
+        </div>
+
+        <!-- Footer Col 2 -->
+        <div>
+          <h4 class="text-base font-bold text-slate-300 uppercase tracking-widest mb-4">Liên kết nhanh</h4>
+          <ul class="space-y-3 text-base">
+            <li><a href="../company/" class="hover:text-brand-orange transition-colors">Về chúng tôi</a></li>
+            <li><a href="../business/infra/" class="hover:text-brand-orange transition-colors">Giải pháp Hạ tầng IT</a></li>
+            <li><a href="../business/solution/" class="hover:text-brand-orange transition-colors">Giải pháp Công nghệ</a></li>
+            <li><a href="../references/" class="hover:text-brand-orange transition-colors">Dự án thực tế</a></li>
+          </ul>
+        </div>
+
+        <!-- Footer Col 3 -->
+        <div>
+          <h4 class="text-base font-bold text-slate-300 uppercase tracking-widest mb-4">Thông tin văn phòng</h4>
+            <div class="space-y-6">
+              
+                            <address class="not-italic space-y-3 text-base leading-relaxed font-outfit border-t border-white/5 pt-4">
+                <p class="flex items-start gap-2.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="map-pin" aria-hidden="true" class="lucide lucide-map-pin w-4.5 h-4.5 text-brand-orange shrink-0"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  <span class="text-slate-300 break-keep">Văn phòng Việt Nam : Phòng 2-3, Văn phòng Avalon, Tầng 22, Tòa nhà PVI, Phường Yên Hòa, Quận Cầu Giấy, Thành phố Hà Nội</span>
+                </p>
+              <p class="flex items-center gap-2.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone" aria-hidden="true" class="lucide lucide-phone w-4.5 h-4.5 text-brand-orange shrink-0"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
+              <span class="text-slate-300 break-keep">T. +84 886 437 978</span>
+            </p></address>
+            </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-base gap-4">
+        <p>© 2026 APPEZ VINA Co., Ltd.</p>
+        <div class="flex gap-6">
+          <a href="../privacy/" class="hover:text-brand-orange transition-colors font-bold text-slate-300">Chính sách bảo mật</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <!-- Custom Common JS -->
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
+

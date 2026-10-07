@@ -1,0 +1,639 @@
+﻿<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hạ tầng IT - AppEZ</title>
+  <meta name="description" content="AppEZ thiết kế và triển khai máy chủ và thiết bị lưu trữ doanh nghiệp, cùng với giải pháp cho thuê thiết bị và di dời/tiêu hủy an toàn.">
+  <!-- Pretendard Font CDN -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#f97316', /* orange-500 */
+              amber: '#ea580c',  /* orange-600 */
+              darkBg: '#0f172a', /* slate-900 */
+              cardBg: '#1e293b', /* slate-800 */
+              border: '#334155'  /* slate-700 */
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+
+  <!-- SEO Multilingual Link Tags -->
+  <link rel="alternate" hreflang="ko" href="https://appez.co.kr/business/infra/" />
+  <link rel="alternate" hreflang="en" href="https://appez.co.kr/en/business/infra/" />
+  <link rel="alternate" hreflang="vi" href="https://appez.co.kr/vn/business/infra/" />
+  <link rel="alternate" hreflang="x-default" href="https://appez.co.kr/business/infra/" />
+</head>
+<body class="bg-brand-darkBg text-slate-300 selection:bg-brand-orange selection:text-white leading-relaxed text-base">
+
+  <!-- Navigation Header -->
+  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent py-4 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <!-- Logo -->
+      <a href="../../" class="flex items-center gap-2 group">
+        <span class="text-2xl font-extrabold tracking-tight font-outfit text-white">
+          App<span class="text-brand-orange group-hover:text-brand-amber transition-colors">EZ</span> VINA
+        </span>
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center gap-8 text-base font-medium tracking-wide">
+        <a href="../../company/" class="text-slate-300 hover:text-brand-orange transition-colors">Giới thiệu</a>
+        
+        <!-- Dropdown Menu -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 text-brand-orange font-semibold border-b-2 border-brand-orange pb-1 focus:outline-none">
+            Business <i data-lucide="chevron-down" class="w-4 h-4 text-brand-orange"></i>
+          </button>
+          <div class="absolute top-full -left-4 mt-2 w-48 rounded-lg shadow-xl bg-brand-cardBg border border-white/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2">
+            <a href="./" class="block px-4 py-2 text-brand-orange bg-white/5 font-bold transition-colors">IT Infra</a>
+            <a href="../solution/" class="block px-4 py-2 text-slate-300 hover:bg-brand-orange hover:text-white transition-colors">IT Solution</a>
+          </div>
+        </div>
+
+        <a href="../../references/" class="text-slate-300 hover:text-brand-orange transition-colors">Dự án thực tế</a>
+      </nav>
+
+      <!-- Right Nav Buttons -->
+      <div class="hidden md:flex items-center gap-6">
+        <!-- Language Switcher -->
+        <div class="relative group">
+          <button class="flex items-center gap-1.5 text-slate-300 hover:text-brand-orange transition-colors focus:outline-none text-base font-semibold">
+            <i data-lucide="globe" class="w-4.5 h-4.5"></i> <span class="ml-1 uppercase">VN</span> <i data-lucide="chevron-down" class="w-3 h-3"></i>
+          </button>
+          <div class="absolute right-0 top-full mt-2 w-24 rounded-lg shadow-xl bg-brand-cardBg border border-white/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-1 text-sm font-medium z-50">
+            <a href="../../../business/infra/" class="block px-4 py-2 text-slate-300 hover:text-brand-orange hover:bg-white/5 transition-colors">KO</a>
+            <a href="../../../en/business/infra/" class="block px-4 py-2 text-slate-300 hover:text-brand-orange hover:bg-white/5 transition-colors">EN</a>
+            <a href="./" class="block px-4 py-2 text-brand-orange font-bold hover:bg-white/5 transition-colors">VN</a>
+          </div>
+        </div>
+
+        <a href="../../contact/" class="px-5 py-2 rounded-full bg-brand-orange hover:bg-brand-amber text-white text-base font-semibold tracking-wider transition-all duration-300 shadow-md shadow-brand-orange/20">
+          Liên hệ
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none hover:text-brand-orange transition-colors">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-menu" class="fixed inset-0 z-50 hidden bg-brand-darkBg/95 backdrop-blur-lg flex flex-col justify-between p-6">
+    <div>
+      <div class="flex items-center justify-between mb-8">
+        <a href="../../" class="text-2xl font-extrabold tracking-tight font-outfit text-white">
+          App<span class="text-brand-orange">EZ</span> VINA
+        </a>
+        <button id="mobile-menu-close-btn" class="text-white hover:text-brand-orange transition-colors">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col gap-6 text-lg font-medium">
+        <a href="../../company/" class="text-slate-300 hover:text-brand-orange py-2 border-b border-white/5 transition-colors">Giới thiệu</a>
+        <a href="./" class="text-brand-orange py-2 border-b border-white/5 transition-colors pl-4 font-bold"><span class="text-brand-orange mr-2">▪</span>IT Infra</a>
+        <a href="../solution/" class="text-slate-300 hover:text-brand-orange py-2 border-b border-white/5 transition-colors pl-4"><span class="text-brand-orange mr-2">▪</span>IT Solution</a>
+        <a href="../../references/" class="text-slate-300 hover:text-brand-orange py-2 border-b border-white/5 transition-colors">Dự án thực tế</a>
+      </nav>
+      <!-- Mobile Language Switcher -->
+      <div class="mt-8 pt-6 border-t border-white/5">
+        <span class="text-xs text-slate-500 font-semibold uppercase tracking-widest block mb-3">Language</span>
+        <div class="flex gap-4 text-base font-semibold">
+          <a href="../../../business/infra/" class="text-slate-400 hover:text-brand-orange">KO</a>
+          <span class="text-white/20">|</span>
+          <a href="../../../en/business/infra/" class="text-slate-400 hover:text-brand-orange">EN</a>
+          <span class="text-white/20">|</span>
+          <a href="./" class="text-brand-orange">VN</a>
+        </div>
+      </div>
+    </div>
+    <div class="mb-8">
+      <a href="../../contact/" class="block w-full py-4 text-center rounded-xl bg-brand-orange hover:bg-brand-amber text-white font-semibold transition-all duration-300">
+        Liên hệ ngay
+      </a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative pt-48 pb-24 overflow-hidden bg-brand-darkBg flex items-center">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1920&q=80" alt="Server Datacenter" class="w-full h-full object-cover opacity-15 filter grayscale hover:scale-105 transition-transform duration-[10000ms]">
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-darkBg via-brand-darkBg/60 to-transparent"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 text-center w-full">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange/10 border border-brand-orange/20 text-brand-orange text-base font-semibold tracking-widest uppercase mb-6 animate-pulse" data-aos="fade-down">
+        Tích hợp phần cứng
+      </span>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold font-outfit tracking-tight text-white mb-6" data-aos="fade-up" data-aos-delay="100">
+        Xây dựng & Bảo trì Hạ tầng CNTT
+      </h1>
+      <p class="max-w-2xl mx-auto text-slate-300 text-base leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+        Cung cấp dịch vụ phần cứng toàn diện từ thiết kế máy chủ tối ưu, tủ đĩa lưu trữ, ảo hóa x86 và giải pháp chuyển đổi trung tâm dữ liệu an toàn.
+      </p>
+    </div>
+  </section>
+
+  <!-- Systems Integration Vendor Partnerships -->
+  <section class="py-24 relative bg-brand-darkBg">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <span class="text-brand-orange font-bold text-base uppercase tracking-widest mb-3 block">Đối tác công nghệ</span>
+        <h2 class="text-3xl sm:text-4xl font-bold font-outfit text-white tracking-tight mb-6">
+          Hạ tầng hệ thống xây dựng trên <span class="text-brand-orange">Các hãng IT hàng đầu</span>
+        </h2>
+        <p class="text-slate-300 text-base leading-relaxed">
+          Thông qua quan hệ đối tác đại lý chính thức và Gold Partner với các hãng công nghệ lớn, chúng tôi đem lại thiết kế phần cứng doanh nghiệp tốt nhất.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- IBM -->
+        <div class="glass-panel border border-white/5 rounded-2xl p-8 h-full flex flex-col neon-glow-hover bg-brand-cardBg" data-aos="fade-up">
+          <div>
+            <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+              <span class="text-xl font-black font-outfit text-white tracking-widest">IBM</span>
+              <span class="text-xs font-bold text-brand-orange bg-brand-orange/10 px-2.5 py-1 rounded">Gold Partner</span>
+            </div>
+            
+            <div class="space-y-4 mb-6">
+              <div>
+                <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-widest">Power Server</h4>
+                <p class="text-base text-slate-200 font-bold mt-1">S1014 / S1122 / S1124, E1150 / E1180</p>
+              </div>
+              <div>
+                <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-widest">High-End Storage</h4>
+                <p class="text-base text-slate-200 font-bold mt-1">FlashSystem, Mainframe Storage, Storage Scale (SSS), Tape Storage</p>
+              </div>
+              <p class="text-base text-slate-300 leading-relaxed mt-2">
+                Chúng tôi cung cấp máy chủ Power hiệu năng cao và các tủ đĩa lưu trữ doanh nghiệp FlashSystem đảm bảo xử lý giao dịch mở rộng tốt nhất.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Khu vực nút: áp dụng mt-auto để luôn căn lề dưới cùng (Cấu trúc 2 tầng để đồng bộ chiều cao) -->
+          <div class="mt-auto border-t border-white/5 pt-5 space-y-3">
+            <!-- [Template 1] Multi-Brochures UI
+            <div class="grid grid-cols-2 gap-2">
+              <a href="#" download="IBM_Server_Brochure.pdf" target="_blank" class="flex items-center justify-center gap-1 px-2 py-2 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-md transition-all">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i> Máy chủ
+              </a>
+              <a href="#" download="IBM_Storage_Brochure.pdf" target="_blank" class="flex items-center justify-center gap-1 px-2 py-2 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-md transition-all">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i> Lưu trữ
+              </a>
+            </div>
+            -->
+
+            <!-- [Template 2] Single Brochure UI - IBM Ví dụ: Active
+            <a href="#" download="IBM_Brochure_AppEZ.pdf" target="_blank" class="flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-md transition-all w-full">
+              <i data-lucide="download" class="w-4 h-4"></i> Tải Brochure
+            </a>
+			-->
+
+            <!-- [Template 3] No Brochure (Lead Gen) UI -->
+            <a href="../../contact/?type=infra" class="flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-bold border border-slate-500 text-slate-300 hover:text-white hover:border-slate-300 rounded-md transition-all w-full">
+              <i data-lucide="message-square" class="w-4 h-4"></i> Yêu cầu thông tin
+            </a>
+            
+            <a href="https://www.ibm.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-bold text-white bg-brand-orange hover:bg-brand-amber rounded-md transition-all w-full">
+              IBM Site <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Dell Technologies -->
+        <div class="glass-panel border border-white/5 rounded-2xl p-8 h-full flex flex-col neon-glow-hover bg-brand-cardBg" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+              <span class="text-xl font-black font-outfit text-white tracking-widest">DELL Tech</span>
+              <span class="text-xs font-bold text-brand-orange bg-brand-orange/10 px-2.5 py-1 rounded">Gold Partner</span>
+            </div>
+            
+            <div class="space-y-4 mb-6">
+              <div>
+                <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-widest">PowerEdge Server</h4>
+                <p class="text-base text-slate-200 font-bold mt-1">PowerEdge R Series, PowerEdge T Series</p>
+              </div>
+              <div>
+                <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-widest">Unified Storage</h4>
+                <p class="text-base text-slate-200 font-bold mt-1">Unity XT, PowerStore, PowerMax</p>
+              </div>
+              <p class="text-base text-slate-300 leading-relaxed mt-2">
+                Tích hợp hệ thống máy chủ x86 Dell PowerEdge với lưu trữ flash NVMe PowerStore tốc độ cao, tối ưu hóa các ứng dụng doanh nghiệp.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Khu vực nút: áp dụng mt-auto để luôn căn lề dưới cùng (Cấu trúc 2 tầng để đồng bộ chiều cao) -->
+          <div class="mt-auto border-t border-white/5 pt-5 space-y-3">
+            <!-- [Template 1] Multi-Brochures UI - DELL Tech Ví dụ: Active 
+            <div class="grid grid-cols-2 gap-2">
+              <a href="#" download="Dell_Server_Brochure.pdf" target="_blank" class="flex items-center justify-center gap-1 px-2 py-2 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-md transition-all">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i> Máy chủ
+              </a>
+              <a href="#" download="Dell_Storage_Brochure.pdf" target="_blank" class="flex items-center justify-center gap-1 px-2 py-2 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-md transition-all">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i> Lưu trữ
+              </a>
+            </div>
+			-->
+
+            <!-- [Template 2] Single Brochure UI 
+            <a href="#" download="Dell_Brochure_AppEZ.pdf" target="_blank" class="flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-md transition-all w-full">
+              <i data-lucide="download" class="w-4 h-4"></i> Tải Brochure
+            </a>
+			-->
+
+            <!-- [Template 3] No Brochure (Lead Gen) UI -->
+            <a href="../../contact/?type=infra" class="flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-bold border border-slate-500 text-slate-300 hover:text-white hover:border-slate-300 rounded-md transition-all w-full">
+              <i data-lucide="message-square" class="w-4 h-4"></i> Yêu cầu thông tin
+            </a>
+            
+            <a href="https://www.dell.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-bold text-white bg-brand-orange hover:bg-brand-amber rounded-md transition-all w-full">
+              Dell Site <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Lenovo -->
+        <div class="glass-panel border border-white/5 rounded-2xl p-8 h-full flex flex-col neon-glow-hover bg-brand-cardBg" data-aos="fade-up" data-aos-delay="200">
+          <div>
+            <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+              <span class="text-xl font-black font-outfit text-white tracking-widest">Lenovo</span>
+              <span class="text-xs font-bold text-brand-orange bg-brand-orange/10 px-2.5 py-1 rounded">Reseller</span>
+            </div>
+            
+            <div class="space-y-4 mb-6">
+              <div>
+                <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-widest">ThinkSystem Server</h4>
+                <p class="text-base text-slate-200 font-bold mt-1">ThinkSystem SR Series, ThinkSystem ST Series</p>
+              </div>
+              <div>
+                <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-widest">Software-Defined</h4>
+                <p class="text-base text-slate-200 font-bold mt-1">ThinkAgile HX Series, ThinkAgile VX Series</p>
+              </div>
+              <p class="text-base text-slate-300 leading-relaxed mt-2">
+                Xây dựng môi trường máy chủ web doanh nghiệp hiệu quả và giải pháp lưu trữ phần mềm định nghĩa (SDI) tối ưu bằng ThinkAgile.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Khu vực nút: áp dụng mt-auto để luôn căn lề dưới cùng (Cấu trúc 2 tầng để đồng bộ chiều cao) -->
+          <div class="mt-auto border-t border-white/5 pt-5 space-y-3">
+            <!-- [Template 1] Multi-Brochures UI
+            <div class="grid grid-cols-2 gap-2">
+              <a href="#" download="Lenovo_Server_Brochure.pdf" target="_blank" class="flex items-center justify-center gap-1 px-2 py-2 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-md transition-all">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i> Máy chủ
+              </a>
+              <a href="#" download="Lenovo_Storage_Brochure.pdf" target="_blank" class="flex items-center justify-center gap-1 px-2 py-2 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-md transition-all">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i> Lưu trữ
+              </a>
+            </div>
+            -->
+
+            <!-- [Template 2] Single Brochure UI - Lenovo Ví dụ: Active 
+            <a href="#" download="Lenovo_Brochure_AppEZ.pdf" target="_blank" class="flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-md transition-all w-full">
+              <i data-lucide="download" class="w-4 h-4"></i> Tải Brochure
+            </a>
+			-->
+
+            <!-- [Template 3] No Brochure (Lead Gen) UI -->
+            <a href="../../contact/?type=infra" class="flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-bold border border-slate-500 text-slate-300 hover:text-white hover:border-slate-300 rounded-md transition-all w-full">
+              <i data-lucide="message-square" class="w-4 h-4"></i> Yêu cầu thông tin
+            </a>
+            
+            <a href="https://www.lenovo.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-bold text-white bg-brand-orange hover:bg-brand-amber rounded-md transition-all w-full">
+              Lenovo Site <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- HPE -->
+        <div class="glass-panel border border-white/5 rounded-2xl p-8 h-full flex flex-col neon-glow-hover bg-brand-cardBg" data-aos="fade-up">
+          <div>
+            <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+              <span class="text-xl font-black font-outfit text-white tracking-widest">HPE</span>
+              <span class="text-xs font-bold text-brand-orange bg-brand-orange/10 px-2.5 py-1 rounded">Partner</span>
+            </div>
+            
+            <div class="space-y-4 mb-6">
+              <div>
+                <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-widest">ProLiant Compute</h4>
+                <p class="text-base text-slate-200 font-bold mt-1">ProLiant DL Series, ML Series</p>
+              </div>
+              <p class="text-base text-slate-300 leading-relaxed mt-6">
+                Thiết kế cấu hình tiêu chuẩn doanh nghiệp bằng dòng máy chủ HPE ProLiant nổi tiếng, mang lại tính tương thích và bảo mật cao.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Khu vực nút: áp dụng mt-auto để luôn căn lề dưới cùng (Cấu trúc 2 tầng để đồng bộ chiều cao) -->
+          <div class="mt-auto border-t border-white/5 pt-5 space-y-3">
+            <!-- [Template 1] Multi-Brochures UI
+            <div class="grid grid-cols-2 gap-2">
+              <a href="#" download="HPE_Server_Brochure.pdf" target="_blank" class="flex items-center justify-center gap-1 px-2 py-2 text-sm font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-md transition-all">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i> Máy chủ
+              </a>
+              <a href="#" download="HPE_Storage_Brochure.pdf" target="_blank" class="flex items-center justify-center gap-1 px-2 py-2 text-sm font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-md transition-all">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i> Lưu trữ
+              </a>
+            </div>
+            -->
+
+            <!-- [Template 2] Single Brochure UI
+            <a href="#" download="HPE_Brochure_AppEZ.pdf" target="_blank" class="flex items-center justify-center gap-1.5 px-3 py-2.5 text-sm font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-xl transition-all w-full">
+              <i data-lucide="download" class="w-4 h-4"></i> Tải Brochure
+            </a>
+            -->
+
+            <!-- [Template 3] No Brochure (Lead Gen) UI -->
+            <a href="../../contact/?type=infra" class="flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-bold border border-slate-500 text-slate-300 hover:text-white hover:border-slate-300 rounded-md transition-all w-full">
+              <i data-lucide="message-square" class="w-4 h-4"></i> Yêu cầu thông tin
+            </a>
+            
+            <a href="https://www.hpe.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-bold text-white bg-brand-orange hover:bg-brand-amber rounded-md transition-all w-full">
+              HPE Site <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Nutanix -->
+        <div class="glass-panel border border-white/5 rounded-2xl p-8 h-full flex flex-col neon-glow-hover bg-brand-cardBg" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+              <span class="text-xl font-black font-outfit text-white tracking-widest">Nutanix</span>
+              <span class="text-xs font-bold text-brand-orange bg-brand-orange/10 px-2.5 py-1 rounded">HCI Partner</span>
+            </div>
+            
+            <div class="space-y-4 mb-6">
+              <div>
+                <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-widest">Hyperconverged Infr</h4>
+                <p class="text-base text-slate-200 font-bold mt-1">Nutanix Enterprise Cloud System</p>
+              </div>
+              <p class="text-base text-slate-300 leading-relaxed mt-6">
+                Chuyển đổi các lớp vật lý phức tạp thành môi trường ảo hóa siêu hội tụ giúp dịch chuyển Cloud dễ dàng với Nutanix Enterprise Cloud.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Khu vực nút: áp dụng mt-auto để luôn căn lề dưới cùng (Cấu trúc 2 tầng để đồng bộ chiều cao) -->
+          <div class="mt-auto border-t border-white/5 pt-5 space-y-3">
+            <!-- [Template 1] Multi-Brochures UI
+            <div class="grid grid-cols-2 gap-2">
+              <a href="#" download="Nutanix_Server_Brochure.pdf" target="_blank" class="flex items-center justify-center gap-1 px-2 py-2 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-md transition-all">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i> Máy chủ
+              </a>
+              <a href="#" download="Nutanix_Storage_Brochure.pdf" target="_blank" class="flex items-center justify-center gap-1 px-2 py-2 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-md transition-all">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i> Lưu trữ
+              </a>
+            </div>
+            -->
+
+            <!-- [Template 2] Single Brochure UI
+            <a href="#" download="Nutanix_Brochure_AppEZ.pdf" target="_blank" class="flex items-center justify-center gap-1.5 px-3 py-2.5 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-md transition-all w-full">
+              <i data-lucide="download" class="w-4 h-4"></i> Tải Brochure
+            </a>
+            -->
+
+            <!-- [Template 3] No Brochure (Lead Gen) UI -->
+            <a href="../../contact/?type=infra" class="flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-bold border border-slate-500 text-slate-300 hover:text-white hover:border-slate-300 rounded-md transition-all w-full">
+              <i data-lucide="message-square" class="w-4 h-4"></i> Yêu cầu thông tin
+            </a>
+            
+            <a href="https://www.nutanix.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-bold text-white bg-brand-orange hover:bg-brand-amber rounded-md transition-all w-full">
+              Nutanix Site <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Rental Solutions -->
+  <section class="py-24 relative bg-brand-cardBg border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-16 items-center" data-aos="fade-up">
+        
+        <!-- Left Area (Text) -->
+        <div class="md:col-span-5" data-aos="fade-right">
+          <span class="text-brand-orange font-bold text-base uppercase tracking-widest mb-3 block">01. Giải pháp cho thuê</span>
+          <h2 class="text-3xl sm:text-4xl font-bold font-outfit text-white tracking-tight mb-6">
+            Dịch vụ cho thuê <span class="text-brand-orange">Thiết bị IT tối ưu</span>
+          </h2>
+          <p class="text-slate-300 text-base leading-relaxed">
+            Chúng tôi cho thuê máy chủ, thiết bị mạng chất lượng cao cho các dự án phát triển, kiểm thử, giúp doanh nghiệp tiết kiệm chi phí đầu tư ban đầu hiệu quả.
+          </p>
+        </div>
+        
+        <!-- Right Area (4 Cards) -->
+        <div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4" data-aos="fade-left">
+          
+          
+            <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 flex items-start gap-4">
+              <div class="w-8 h-8 rounded-full bg-brand-orange/10 text-brand-orange flex items-center justify-center shrink-0">
+                <i data-lucide="trending-down" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h4 class="text-base font-bold text-slate-200 mb-1">Tiết kiệm chi phí</h4>
+                <p class="text-base text-slate-400 leading-relaxed">Giảm thiểu chi phí đầu tư ban đầu nhờ thanh toán định kỳ hàng tháng.</p>
+              </div>
+            </div>
+
+            <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 flex items-start gap-4">
+              <div class="w-8 h-8 rounded-full bg-brand-orange/10 text-brand-orange flex items-center justify-center shrink-0">
+                <i data-lucide="shield" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h4 class="text-base font-bold text-slate-200 mb-1">Đảm bảo chất lượng</h4>
+                <p class="text-base text-slate-400 leading-relaxed">Cung cấp thiết bị chính hãng đã qua kiểm tra nghiêm ngặt bởi kỹ sư.</p>
+              </div>
+            </div>
+
+            <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 flex items-start gap-4">
+              <div class="w-8 h-8 rounded-full bg-brand-orange/10 text-brand-orange flex items-center justify-center shrink-0">
+                <i data-lucide="truck" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h4 class="text-base font-bold text-slate-200 mb-1">Lắp đặt trực tiếp</h4>
+                <p class="text-base text-slate-400 leading-relaxed">Đội ngũ kỹ sư trực tiếp hỗ trợ cấu hình OS và lắp đặt tủ rack.</p>
+              </div>
+            </div>
+
+            <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 flex items-start gap-4">
+              <div class="w-8 h-8 rounded-full bg-brand-orange/10 text-brand-orange flex items-center justify-center shrink-0">
+                <i data-lucide="history" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h4 class="text-base font-bold text-slate-200 mb-1">Bảo trì SLA</h4>
+                <p class="text-base text-slate-400 leading-relaxed">Hỗ trợ đổi mới thiết bị 1-đối-1 nhanh chóng khi xảy ra sự cố phần cứng.</p>
+              </div>
+            </div>
+          
+        
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Migration & Asset Disposal -->
+  <section class="py-24 relative bg-brand-darkBg overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <span class="text-brand-orange font-bold text-base uppercase tracking-widest mb-3 block">02. Di dời & Tiêu hủy</span>
+        <h2 class="text-3xl sm:text-4xl font-bold font-outfit text-white tracking-tight mb-6">
+          Di dời máy chủ & <span class="text-brand-orange">Tiêu hủy tài sản dữ liệu an toàn</span>
+        </h2>
+        <p class="text-slate-300 text-base leading-relaxed">
+          Quy trình chuyển đổi thiết bị phần cứng và dữ liệu an toàn, giảm thiểu tối đa thời gian gián đoạn hệ thống.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        
+        <!-- Migration Process -->
+        <div class="glass-panel border border-white/5 rounded-2xl p-8 bg-brand-cardBg" data-aos="fade-right">
+          <h3 class="text-xl font-bold font-outfit text-white mb-6 flex items-center gap-2">
+            <span class="w-7 h-7 rounded-full bg-brand-orange/10 text-brand-orange text-sm font-bold flex items-center justify-center">01</span>
+            Dịch vụ di dời máy chủ (Server Migration)
+          </h3>
+          
+          <div class="space-y-6 relative border-l border-white/10 pl-6 ml-3">
+            <div class="relative">
+              <span class="absolute -left-[30px] top-1 w-4.5 h-4.5 rounded-full bg-brand-orange flex items-center justify-center text-xs font-black text-white">1</span>
+              <h4 class="text-base font-bold text-slate-200 mb-1">Chuẩn bị trước di dời</h4>
+              <p class="text-base text-slate-400">Ghi nhãn tài sản, sao lưu cấu hình hệ thống, tắt nguồn an toàn và tháo gỡ thiết bị khỏi rack.</p>
+            </div>
+            
+            <div class="relative">
+              <span class="absolute -left-[30px] top-1 w-4.5 h-4.5 rounded-full bg-brand-orange flex items-center justify-center text-xs font-black text-white">2</span>
+              <h4 class="text-base font-bold text-slate-200 mb-1">Vận chuyển chống rung</h4>
+              <p class="text-base text-slate-400">Sử dụng phương tiện chuyên dụng kiểm soát nhiệt độ chống rung lắc và đệm bọt bảo vệ.</p>
+            </div>
+
+            <div class="relative">
+              <span class="absolute -left-[30px] top-1 w-4.5 h-4.5 rounded-full bg-brand-orange flex items-center justify-center text-xs font-black text-white">3</span>
+              <h4 class="text-base font-bold text-slate-200 mb-1">Tái lắp đặt & Kiểm tra</h4>
+              <p class="text-base text-slate-400">Lắp đặt lại tủ rack, đấu nối cáp, chẩn đoán khởi động và kiểm tra toàn diện hoạt động hệ thống.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Asset Disposal -->
+        <div class="glass-panel border border-white/5 rounded-2xl p-8 bg-brand-cardBg" data-aos="fade-left">
+          <h3 class="text-xl font-bold font-outfit text-white mb-6 flex items-center gap-2">
+            <span class="w-7 h-7 rounded-full bg-brand-orange/10 text-brand-orange text-sm font-bold flex items-center justify-center">02</span>
+            Tiêu hủy tài sản & Hủy dữ liệu an toàn
+          </h3>
+          
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-brand-darkBg flex items-center justify-center text-brand-orange shrink-0">
+                <i data-lucide="shield-alert" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="text-base font-bold text-slate-200 mb-1">Ngăn ngừa rò rỉ dữ liệu (Khử từ & Hủy vật lý)</h4>
+                <p class="text-base text-slate-300 leading-relaxed">
+                  Khử từ tính đĩa cứng vĩnh viễn bằng Degausser và cắt nhỏ vật lý đĩa cứng, cấp chứng nhận tiêu hủy dữ liệu chính thức.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-brand-darkBg flex items-center justify-center text-brand-orange shrink-0">
+                <i data-lucide="coins" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="text-base font-bold text-slate-200 mb-1">Thu hồi giá trị thiết bị cũ</h4>
+                <p class="text-base text-slate-300 leading-relaxed">
+                  Chúng tôi kiểm tra và đánh giá linh kiện phần cứng cũ để thu hồi giá trị còn lại, giảm thiểu chi phí khấu hao cho doanh nghiệp.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-brand-darkBg text-slate-500 py-16 px-6 md:px-12 border-t border-white/5">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        
+        <!-- Footer Col 1 -->
+        <div class="md:col-span-2">
+          <a href="../" class="text-xl font-bold text-white tracking-tight font-outfit mb-4 inline-block">
+            App<span class="text-brand-orange">EZ</span> VINA
+          </a>
+          <p class="text-base text-slate-300 leading-relaxed mb-6 max-w-sm">
+            Đối tác tin cậy cung cấp dịch vụ hạ tầng IT tích hợp, thiết kế hệ thống và tư vấn dựa trên kỹ thuật xuất sắc.
+          </p>
+        </div>
+
+        <!-- Footer Col 2 -->
+        <div>
+          <h4 class="text-base font-bold text-slate-300 uppercase tracking-widest mb-4">Liên kết nhanh</h4>
+          <ul class="space-y-3 text-base">
+            <li><a href="../company/" class="hover:text-brand-orange transition-colors">Về chúng tôi</a></li>
+            <li><a href="../business/infra/" class="hover:text-brand-orange transition-colors">Giải pháp Hạ tầng IT</a></li>
+            <li><a href="../business/solution/" class="hover:text-brand-orange transition-colors">Giải pháp Công nghệ</a></li>
+            <li><a href="../references/" class="hover:text-brand-orange transition-colors">Dự án thực tế</a></li>
+          </ul>
+        </div>
+
+        <!-- Footer Col 3 -->
+        <div>
+          <h4 class="text-base font-bold text-slate-300 uppercase tracking-widest mb-4">Thông tin văn phòng</h4>
+            <div class="space-y-6">
+              
+                            <address class="not-italic space-y-3 text-base leading-relaxed font-outfit border-t border-white/5 pt-4">
+                <p class="flex items-start gap-2.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="map-pin" aria-hidden="true" class="lucide lucide-map-pin w-4.5 h-4.5 text-brand-orange shrink-0"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  <span class="text-slate-300 break-keep">Văn phòng Việt Nam : Phòng 2-3, Văn phòng Avalon, Tầng 22, Tòa nhà PVI, Phường Yên Hòa, Quận Cầu Giấy, Thành phố Hà Nội</span>
+                </p>
+              <p class="flex items-center gap-2.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone" aria-hidden="true" class="lucide lucide-phone w-4.5 h-4.5 text-brand-orange shrink-0"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
+              <span class="text-slate-300 break-keep">T. +84 886 437 978</span>
+            </p></address>
+            </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-base gap-4">
+        <p>© 2026 APPEZ VINA Co., Ltd.</p>
+        <div class="flex gap-6">
+          <a href="../privacy/" class="hover:text-brand-orange transition-colors font-bold text-slate-300">Chính sách bảo mật</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <!-- Custom Common JS -->
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

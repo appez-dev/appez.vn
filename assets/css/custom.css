@@ -1,0 +1,113 @@
+﻿/* 
+  주식회사 앱이지(AppEZ) 공식 홈페이지 - UI/UX 개선 및 반응형 최적화 커스텀 CSS
+  Pretendard 폰트 도입 및 다크 슬레이트 테마 기준 조율
+*/
+
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  background-color: #0f172a; /* bg-slate-900 */
+  color: #cbd5e1; /* text-slate-300 */
+  overflow-x: hidden;
+  font-size: 16px; /* text-base (최소 16px 하한선 설정) */
+  line-height: 1.625; /* leading-relaxed에 해당하는 줄간격 */
+  word-break:keep-all;
+}
+
+/* 영문/숫자 및 강조 폰트로 Outfit 사용 */
+.font-outfit {
+  font-family: 'Outfit', 'Pretendard', sans-serif;
+}
+
+/* 프리미엄 주황색 테마 스크롤바 (Slate 다크 색상 결합) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a; /* bg-slate-900 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155; /* bg-slate-700 */
+  border-radius: 6px;
+  border: 2px solid #0f172a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f97316; /* orange-500 */
+}
+
+/* 글래스모피즘 (Glassmorphism) 스타일 */
+.glass-panel {
+  background: rgba(30, 41, 59, 0.7); /* slate-800 바탕 */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-heavy {
+  background: rgba(15, 23, 42, 0.85); /* slate-900 바탕 */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(249, 115, 22, 0.15); /* orange-500 바탕 미세 테두리 */
+}
+
+/* 오렌지 네온 글로우 테두리 호버 효과 */
+.neon-glow-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.neon-glow-hover:hover {
+  border-color: rgba(249, 115, 22, 0.4);
+  box-shadow: 0 0 25px rgba(249, 115, 22, 0.15);
+  transform: translateY(-4px);
+}
+
+/* 미세 텍스트 그라디언트 (흰색 -> 슬레이트 대비) */
+.text-gradient-orange {
+  background: linear-gradient(135deg, #ffffff 30%, #f97316 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-fire {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 스무스 스크롤 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 네비게이션 액티브 표시 */
+.nav-link-active {
+  color: #f97316; /* orange-500 */
+  font-weight: 600;
+  border-bottom: 2px solid #f97316;
+}
+
+/* 아웃라인 텍스트 */
+.text-outline-gray {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+  color: transparent;
+}
+
+/* 遺????덈뒗 ?④낵 (Floating Animation) */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}

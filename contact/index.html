@@ -1,0 +1,549 @@
+﻿<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liên hệ - AppEZ</title>
+  <meta name="description" content="Liên hệ với AppEZ để được tư vấn thiết kế hạ tầng IT, sao lưu dữ liệu, bảo trì vận hành SLA và báo giá thuê thiết bị phần cứng.">
+  <!-- Pretendard Font CDN -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#f97316', /* orange-500 */
+              amber: '#ea580c',  /* orange-600 */
+              darkBg: '#0f172a', /* slate-900 */
+              cardBg: '#1e293b', /* slate-800 */
+              border: '#334155'  /* slate-700 */
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+
+  <!-- SEO Multilingual Link Tags -->
+  <link rel="alternate" hreflang="ko" href="https://appez.co.kr/contact/" />
+  <link rel="alternate" hreflang="en" href="https://appez.co.kr/en/contact/" />
+  <link rel="alternate" hreflang="vi" href="https://appez.co.kr/vn/contact/" />
+  <link rel="alternate" hreflang="x-default" href="https://appez.co.kr/contact/" />
+</head>
+<body class="bg-brand-darkBg text-slate-300 selection:bg-brand-orange selection:text-white leading-relaxed text-base">
+
+  <!-- Navigation Header -->
+  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent py-4 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <!-- Logo -->
+      <a href="../" class="flex items-center gap-2 group">
+        <span class="text-2xl font-extrabold tracking-tight font-outfit text-white">
+          App<span class="text-brand-orange group-hover:text-brand-amber transition-colors">EZ</span> VINA
+        </span>
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center gap-8 text-base font-medium tracking-wide">
+        <a href="../company/" class="text-slate-300 hover:text-brand-orange transition-colors">Giới thiệu</a>
+        
+        <!-- Dropdown Menu -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 text-slate-300 hover:text-brand-orange transition-colors focus:outline-none">
+            Lĩnh vực <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </button>
+          <div class="absolute top-full -left-4 mt-2 w-48 rounded-lg shadow-xl bg-brand-cardBg border border-white/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2">
+            <a href="../business/infra/" class="block px-4 py-2 text-slate-300 hover:bg-brand-orange hover:text-white transition-colors">Hạ tầng IT</a>
+            <a href="../business/solution/" class="block px-4 py-2 text-slate-300 hover:bg-brand-orange hover:text-white transition-colors">Giải pháp IT</a>
+          </div>
+        </div>
+
+        <a href="../references/" class="text-slate-300 hover:text-brand-orange transition-colors">Dự án thực tế</a>
+      </nav>
+
+      <!-- Right Nav Buttons -->
+      <div class="hidden md:flex items-center gap-6">
+        <!-- Language Switcher -->
+        <div class="relative group">
+          <button class="flex items-center gap-1.5 text-slate-300 hover:text-brand-orange transition-colors focus:outline-none text-base font-semibold">
+            <i data-lucide="globe" class="w-4.5 h-4.5"></i> <span class="ml-1 uppercase">VN</span> <i data-lucide="chevron-down" class="w-3 h-3"></i>
+          </button>
+          <div class="absolute right-0 top-full mt-2 w-24 rounded-lg shadow-xl bg-brand-cardBg border border-white/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-1 text-sm font-medium z-50">
+            <a href="../../contact/" class="block px-4 py-2 text-slate-300 hover:text-brand-orange hover:bg-white/5 transition-colors">KO</a>
+            <a href="../../en/contact/" class="block px-4 py-2 text-slate-300 hover:text-brand-orange hover:bg-white/5 transition-colors">EN</a>
+            <a href="./" class="block px-4 py-2 text-brand-orange font-bold hover:bg-white/5 transition-colors">VN</a>
+          </div>
+        </div>
+
+        <a href="./" class="px-5 py-2 rounded-full bg-brand-orange hover:bg-brand-amber text-white text-base font-semibold tracking-wider transition-all duration-300 shadow-md shadow-brand-orange/20">
+          Liên hệ
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none hover:text-brand-orange transition-colors">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-menu" class="fixed inset-0 z-50 hidden bg-brand-darkBg/95 backdrop-blur-lg flex flex-col justify-between p-6">
+    <div>
+      <div class="flex items-center justify-between mb-8">
+        <a href="../" class="text-2xl font-extrabold tracking-tight font-outfit text-white">
+          App<span class="text-brand-orange">EZ</span> VINA
+        </a>
+        <button id="mobile-menu-close-btn" class="text-white hover:text-brand-orange transition-colors">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col gap-6 text-lg font-medium">
+        <a href="../company/" class="text-slate-300 hover:text-brand-orange py-2 border-b border-white/5 transition-colors">Giới thiệu</a>
+        <a href="../business/infra/" class="text-slate-300 hover:text-brand-orange py-2 border-b border-white/5 transition-colors pl-4"><span class="text-brand-orange mr-2">▪</span>Hạ tầng IT</a>
+        <a href="../business/solution/" class="text-slate-300 hover:text-brand-orange py-2 border-b border-white/5 transition-colors pl-4"><span class="text-brand-orange mr-2">▪</span>Giải pháp IT</a>
+        <a href="../references/" class="text-slate-300 hover:text-brand-orange py-2 border-b border-white/5 transition-colors">Dự án thực tế</a>
+      </nav>
+      <!-- Mobile Language Switcher -->
+      <div class="mt-8 pt-6 border-t border-white/5">
+        <span class="text-xs text-slate-500 font-semibold uppercase tracking-widest block mb-3">Language</span>
+        <div class="flex gap-4 text-base font-semibold">
+          <a href="../../contact/" class="text-slate-400 hover:text-brand-orange">KO</a>
+          <span class="text-white/20">|</span>
+          <a href="../../en/contact/" class="text-slate-400 hover:text-brand-orange">EN</a>
+          <span class="text-white/20">|</span>
+          <a href="./" class="text-brand-orange">VN</a>
+        </div>
+      </div>
+    </div>
+    <div class="mb-8">
+      <a href="./" class="block w-full py-4 text-center rounded-xl bg-brand-orange hover:bg-brand-amber text-white font-semibold transition-all duration-300">
+        Liên hệ ngay
+      </a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative pt-48 pb-24 overflow-hidden bg-brand-darkBg flex items-center">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1920&q=80" alt="Contact context" class="w-full h-full object-cover opacity-15 filter grayscale hover:scale-105 transition-transform duration-[10000ms]">
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-darkBg via-brand-darkBg/60 to-transparent"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 text-center w-full">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange/10 border border-brand-orange/20 text-brand-orange text-base font-semibold tracking-widest uppercase mb-6 animate-pulse" data-aos="fade-down">
+        Liên hệ với chúng tôi
+      </span>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold font-outfit tracking-tight text-white mb-6" data-aos="fade-up" data-aos-delay="100">
+        Yêu cầu Tư vấn & Vị trí Văn phòng
+      </h1>
+      <p class="max-w-2xl mx-auto text-slate-300 text-base leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+        Chúng tôi phản hồi nhanh chóng và chi tiết mọi yêu cầu về thiết kế hạ tầng lai (hybrid), đề xuất bảo trì SLA và thuê thiết bị phần cứng.
+      </p>
+    </div>
+  </section>
+
+  <!-- Info & Form Section -->
+  <section class="py-24 relative bg-brand-darkBg">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        
+        <!-- Left: Contact Details & Maps -->
+        <div class="lg:col-span-5 space-y-8" data-aos="fade-right">          <span class="text-brand-orange font-bold text-base uppercase tracking-widest block">Thông tin liên hệ</span>
+          
+          <!-- Map Area (Toggle Tabs + Maps) -->
+          <div class="space-y-4">
+            <!-- Sleek Dark-tone Toggle Tabs -->
+            <div class="flex rounded-xl bg-brand-darkBg p-1 border border-white/10 max-w-xs">
+              <button id="btn-map-vn" class="flex-1 py-2.5 text-sm font-bold rounded-lg transition-all duration-300 bg-brand-orange text-white" onclick="switchMap('vn')">
+                Văn phòng VN
+              </button>
+              <button id="btn-map-kr" class="flex-1 py-2.5 text-sm font-bold rounded-lg transition-all duration-300 text-slate-400 hover:text-white" onclick="switchMap('kr')">
+                Trụ sở Hàn Quốc
+              </button>
+            </div>
+            
+            <!-- Map Container -->
+            <div class="glass-panel border border-white/5 rounded-2xl p-2 relative overflow-hidden h-[350px] bg-brand-cardBg">
+              <div id="map-vn" class="w-full h-full">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1862.1641523265653!2d105.7891781!3d21.0195458!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab14bda54897%3A0xb544230b31495b37!2sPVI%20Customer%20Support%20North%20Office!5e0!3m2!1svi!2skr!4v1782376710985!5m2!1svi!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+              </div>
+              <div id="map-kr" class="w-full h-full hidden">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.9218926594267!2d126.8617151762853!3d37.55690397204115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9d8c09b321ed%3A0x143b9d5348b2d85c!2sAeb-Iji!5e0!3m2!1svi!2skr!4v1781139457265!5m2!1svi!2skr" class="w-full h-full border-0 rounded-xl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+          </div>
+
+          <!-- Office Info Cards 2-column Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+            <!-- Vietnam Office Card -->
+            <div class="glass-panel border border-white/5 rounded-2xl p-6 bg-brand-cardBg space-y-4">
+              <div class="flex items-center gap-3 border-b border-white/5 pb-3">
+                <div class="w-8 h-8 rounded-lg bg-brand-orange/10 border border-brand-orange/20 text-brand-orange flex items-center justify-center shrink-0">
+                  <i data-lucide="map-pin" class="w-4 h-4"></i>
+                </div>
+                <h4 class="font-extrabold text-slate-200 text-base">Văn phòng VN</h4>
+              </div>
+              <address class="not-italic space-y-3 text-sm text-slate-400 leading-relaxed font-outfit">
+                <p class="break-keep">
+                  <strong class="text-slate-300 block mb-1">Địa chỉ</strong>
+                  Phòng 2-3, Văn phòng Avalon, Tầng 22, Tòa nhà PVI, Phường Yên Hòa, Quận Cầu Giấy, Thành phố Hà Nội
+                </p>
+                <p>
+                  <strong class="text-slate-300 block mb-1">Liên hệ</strong>
+                  T. +84 886 437 978
+                </p>
+                <p>
+                  <strong class="text-slate-300 block mb-1">Email</strong>
+                  info@appez.co.kr
+                </p>
+              </address>
+            </div>
+
+            <!-- Korea HQ Card -->
+            <div class="glass-panel border border-white/5 rounded-2xl p-6 bg-brand-cardBg space-y-4">
+              <div class="flex items-center gap-3 border-b border-white/5 pb-3">
+                <div class="w-8 h-8 rounded-lg bg-brand-orange/10 border border-brand-orange/20 text-brand-orange flex items-center justify-center shrink-0">
+                  <i data-lucide="map-pin" class="w-4 h-4"></i>
+                </div>
+                <h4 class="font-extrabold text-slate-200 text-base">Trụ sở chính</h4>
+              </div>
+              <address class="not-italic space-y-3 text-sm text-slate-400 leading-relaxed font-outfit">
+                <p class="break-keep">
+                  <strong class="text-slate-300 block mb-1">Địa chỉ</strong>
+                  B-907~908, Woolim Blue9, 583 Yangcheon-ro, Gangseo-gu, Seoul, Hàn Quốc
+                </p>
+                <p>
+                  <strong class="text-slate-300 block mb-1">Liên hệ</strong>
+                  T. +82-2-2135-5030<br>F. +82-2-2135-5040
+                </p>
+                <p>
+                  <strong class="text-slate-300 block mb-1">Email</strong>
+                  info@appez.co.kr
+                </p>
+              </address>
+            </div>
+          </div></div>
+
+        <!-- Right: Web3forms Form -->
+        <div class="lg:col-span-7" data-aos="fade-left">
+          <div class="glass-panel border border-white/5 rounded-3xl p-8 sm:p-10 bg-brand-cardBg">
+            <h3 class="text-xl font-bold font-outfit text-white mb-6 flex items-center gap-2 border-b border-white/5 pb-4">
+              <i data-lucide="send" class="w-5 h-5 text-brand-orange animate-pulse"></i> Gửi yêu cầu tư vấn
+            </h3>
+
+            <!-- Web3forms Form -->
+            <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+              <input type="hidden" name="access_key" value="f3da473b-7a79-455e-94f0-7ce2bf09eddd">
+              <input type="checkbox" name="botcheck" style="display: none;" class="hidden">
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Inquiry Type -->
+                <div class="sm:col-span-2">
+                  <label for="inquiry_type" class="block text-base font-bold text-slate-300 uppercase tracking-wider mb-2">Loại yêu cầu <span class="text-brand-orange">*</span></label>
+                  <div class="relative">
+                    <select id="inquiry_type" name="inquiry_type" required class="w-full bg-brand-darkBg border border-white/10 rounded-xl px-4 py-3.5 text-base text-slate-200 focus:outline-none focus:border-brand-orange/60 appearance-none transition-colors">
+                      <option value="" disabled selected>Vui lòng chọn loại yêu cầu</option>
+                      <option value="Operations Maintenance">Bảo trì vận hành (Hỗ trợ SLA 24/7)</option>
+                      <option value="Systems Integration">Tích hợp hệ thống (SI Máy chủ/Lưu trữ)</option>
+                      <option value="Solutions Deployment">Triển khai giải pháp (Veeam / WhaTap)</option>
+                      <option value="Equipment Rental">Thuê thiết bị phần cứng (Ngắn/Dài hạn)</option>
+                    </select>
+                    <div class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none">
+                      <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Company Name -->
+                <div>
+                  <label for="company_name" class="block text-base font-bold text-slate-300 uppercase tracking-wider mb-2">Tên công ty / Tổ chức <span class="text-brand-orange">*</span></label>
+                  <input type="text" id="company_name" name="company_name" required placeholder="Ví dụ: Công ty Cổ phần AppEZ" class="w-full bg-brand-darkBg border border-white/10 rounded-xl px-4 py-3.5 text-base text-slate-200 focus:outline-none focus:border-brand-orange/60 transition-colors">
+                </div>
+
+                <!-- Contact Name -->
+                <div>
+                  <label for="contact_name" class="block text-base font-bold text-slate-300 uppercase tracking-wider mb-2">Họ và tên người liên hệ <span class="text-brand-orange">*</span></label>
+                  <input type="text" id="contact_name" name="name" required placeholder="Ví dụ: Nguyễn Văn A" class="w-full bg-brand-darkBg border border-white/10 rounded-xl px-4 py-3.5 text-base text-slate-200 focus:outline-none focus:border-brand-orange/60 transition-colors">
+                </div>
+
+                <!-- Email Address -->
+                <div class="sm:col-span-2">
+                  <label for="email_address" class="block text-base font-bold text-slate-300 uppercase tracking-wider mb-2">Địa chỉ Email <span class="text-brand-orange">*</span></label>
+                  <input type="email" id="email_address" name="email" required placeholder="Ví dụ: contact@domain.com" class="w-full bg-brand-darkBg border border-white/10 rounded-xl px-4 py-3.5 text-base text-slate-200 focus:outline-none focus:border-brand-orange/60 transition-colors">
+                </div>
+
+                <!-- Message Content -->
+                <div class="sm:col-span-2">
+                  <label for="message_content" class="block text-base font-bold text-slate-300 uppercase tracking-wider mb-2">Nội dung yêu cầu <span class="text-brand-orange">*</span></label>
+                  <textarea id="message_content" name="message" required rows="5" placeholder="Vui lòng mô tả chi tiết thông số kỹ thuật dự án, thời gian dự kiến triển khai và các yêu cầu cốt lõi để chúng tôi có thể đánh giá kỹ thuật nhanh chóng nhất." class="w-full bg-brand-darkBg border border-white/10 rounded-xl px-4 py-3.5 text-base text-slate-200 focus:outline-none focus:border-brand-orange/60 transition-colors resize-none"></textarea>
+                </div>
+              </div>
+
+              <!-- Terms checkbox & Info Box -->
+              <div class="space-y-3">
+                <div class="bg-brand-darkBg border border-white/10 rounded-xl p-3 text-xs text-slate-400 h-24 overflow-y-auto space-y-1">
+                  <p class="font-bold text-slate-300">Thông báo về việc Thu thập và Sử dụng Thông tin Cá nhân</p>
+                  <p>• Mục đích: Tư vấn và phản hồi yêu cầu, cung cấp báo giá dịch vụ.</p>
+                  <p>• Thông tin thu thập: Tên công ty / Tổ chức, Họ và tên, Địa chỉ Email, Nội dung tin nhắn.</p>
+                  <p>• Thời gian lưu trữ: Hủy bỏ ngay lập tức sau khi mục đích được thực hiện, hoặc lưu trữ theo quy định pháp luật.</p>
+                </div>
+                <div class="flex items-start gap-3 text-base text-slate-400 leading-normal">
+                  <input type="checkbox" id="privacy_agree" required class="mt-1 accent-brand-orange shrink-0">
+                  <label for="privacy_agree" class="text-sm">
+                    <span class="text-brand-orange font-bold">[Bắt buộc]</span> Tôi đồng ý với việc thu thập và sử dụng thông tin cá nhân.
+                  </label>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" id="submit-btn" class="w-full py-4 text-center rounded-xl bg-brand-orange hover:bg-brand-amber text-white font-bold text-base uppercase tracking-wider shadow-lg shadow-brand-orange/10 hover:shadow-brand-orange/20 transition-all">
+                <span id="submit-btn-text">Gửi tin nhắn</span> <i data-lucide="send" class="w-3.5 h-3.5 inline-block ml-1"></i>
+              </button>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-brand-darkBg text-slate-500 py-16 px-6 md:px-12 border-t border-white/5">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        
+        <!-- Footer Col 1 -->
+        <div class="md:col-span-2">
+          <a href="../" class="text-xl font-bold text-white tracking-tight font-outfit mb-4 inline-block">
+            App<span class="text-brand-orange">EZ</span> VINA
+          </a>
+          <p class="text-base text-slate-300 leading-relaxed mb-6 max-w-sm">
+            Đối tác tin cậy cung cấp dịch vụ hạ tầng IT tích hợp, thiết kế hệ thống và tư vấn dựa trên kỹ thuật xuất sắc.
+          </p>
+        </div>
+
+        <!-- Footer Col 2 -->
+        <div>
+          <h4 class="text-base font-bold text-slate-300 uppercase tracking-widest mb-4">Liên kết nhanh</h4>
+          <ul class="space-y-3 text-base">
+            <li><a href="../company/" class="hover:text-brand-orange transition-colors">Về chúng tôi</a></li>
+            <li><a href="../business/infra/" class="hover:text-brand-orange transition-colors">Giải pháp Hạ tầng IT</a></li>
+            <li><a href="../business/solution/" class="hover:text-brand-orange transition-colors">Giải pháp Công nghệ</a></li>
+            <li><a href="../references/" class="hover:text-brand-orange transition-colors">Dự án thực tế</a></li>
+          </ul>
+        </div>
+
+        <!-- Footer Col 3 -->
+        <div>
+          <h4 class="text-base font-bold text-slate-300 uppercase tracking-widest mb-4">Thông tin văn phòng</h4>
+            <div class="space-y-6">
+              
+                            <address class="not-italic space-y-3 text-base leading-relaxed font-outfit border-t border-white/5 pt-4">
+                <p class="flex items-start gap-2.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="map-pin" aria-hidden="true" class="lucide lucide-map-pin w-4.5 h-4.5 text-brand-orange shrink-0"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  <span class="text-slate-300 break-keep">Văn phòng Việt Nam : Phòng 2-3, Văn phòng Avalon, Tầng 22, Tòa nhà PVI, Phường Yên Hòa, Quận Cầu Giấy, Thành phố Hà Nội</span>
+                </p>
+              <p class="flex items-center gap-2.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone" aria-hidden="true" class="lucide lucide-phone w-4.5 h-4.5 text-brand-orange shrink-0"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
+              <span class="text-slate-300 break-keep">T. +84 886 437 978</span>
+            </p></address>
+            </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-base gap-4">
+        <p>© 2026 APPEZ VINA Co., Ltd.</p>
+        <div class="flex gap-6">
+          <a href="../privacy/" class="hover:text-brand-orange transition-colors font-bold text-slate-300">Chính sách bảo mật</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <!-- Custom Common JS -->
+  <script src="../assets/js/main.js"></script>
+  <!-- Success Modal -->
+  <div id="success-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden">
+    <div class="bg-brand-cardBg border border-white/10 rounded-3xl p-8 max-w-md w-full mx-4 shadow-2xl text-center space-y-6 transform scale-95 transition-transform duration-300">
+      <div class="w-16 h-16 bg-green-500/10 border border-green-500/20 text-green-500 rounded-full flex items-center justify-center mx-auto shadow-lg shadow-green-500/10">
+        <i data-lucide="check-circle-2" class="w-8 h-8"></i>
+      </div>
+      <div class="space-y-2">
+        <h3 class="text-xl font-bold text-white">Gửi thành công</h3>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          Yêu cầu của bạn đã được gửi thành công.<br>Quản lý của chúng tôi sẽ kiểm tra và liên hệ lại sớm.
+        </p>
+      </div>
+      <button id="success-modal-close" class="w-full py-3 rounded-xl bg-brand-orange hover:bg-brand-amber text-white font-bold transition-all">
+        Xác nhận
+      </button>
+    </div>
+  </div>
+
+  <!-- Error Modal -->
+  <div id="error-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden">
+    <div class="bg-brand-cardBg border border-white/10 rounded-3xl p-8 max-w-md w-full mx-4 shadow-2xl text-center space-y-6 transform scale-95 transition-transform duration-300">
+      <div class="w-16 h-16 bg-red-500/10 border border-red-500/20 text-red-500 rounded-full flex items-center justify-center mx-auto shadow-lg shadow-red-500/10">
+        <i data-lucide="alert-triangle" class="w-8 h-8"></i>
+      </div>
+      <div class="space-y-2">
+        <h3 class="text-xl font-bold text-white">Gửi thất bại</h3>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          Đã xảy ra lỗi tạm thời khi gửi yêu cầu.<br>Vui lòng thử lại sau giây lát.
+        </p>
+      </div>
+      <button id="error-modal-close" class="w-full py-3 rounded-xl bg-slate-700 hover:bg-slate-600 text-white font-bold transition-all">
+        Đóng
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Parse URL query parameters to auto-select inquiry type
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const type = urlParams.get('type');
+      if (type) {
+        const selectEl = document.getElementById('inquiry_type');
+        if (selectEl) {
+          if (type === 'solution') {
+            selectEl.value = 'Solutions Deployment';
+          } else if (type === 'infra') {
+            selectEl.value = 'Systems Integration';
+          }
+        }
+      }
+
+      // AJAX Form Submit & Modal Handler
+      const form = document.getElementById('contact-form');
+      const submitBtn = document.getElementById('submit-btn');
+      const submitBtnText = document.getElementById('submit-btn-text');
+      const successModal = document.getElementById('success-modal');
+      const errorModal = document.getElementById('error-modal');
+      const successClose = document.getElementById('success-modal-close');
+      const errorClose = document.getElementById('error-modal-close');
+
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          // Disable button and change text
+          submitBtn.disabled = true;
+          const originalBtnHtml = submitBtn.innerHTML;
+          submitBtn.innerHTML = `Đang gửi... <span class="animate-spin inline-block ml-1">⌛</span>`;
+
+          // 1. 폼 데이터 추출 및 가공
+          const formData = new FormData(form);
+          const type = formData.get('inquiry_type') || formData.get('Inquiry_Type') || '미지정';
+          const company = formData.get('company_name') || formData.get('Company_Name') || '미기재';
+          const name = formData.get('name') || '미기재';
+          const phone = formData.get('phone') || formData.get('Phone') || '미기재';
+          const email = formData.get('email') || '미기재';
+          const originalMessage = formData.get('message') || '';
+
+          // 2. 이메일 관련 동적 생성
+		  formData.append('replyto', email);
+		  formData.append('from_name', name);
+          formData.append('subject', `[앱이지 홈페이지 문의] ${type} - ${company}`);
+
+          // 3. 영업 담당자를 위한 이메일 본문(Message) 깔끔하게 포맷팅
+          const formattedMessage = `
+■ 고객 기본 정보
+- 문의 유형 : ${type}
+- 기업/기관명 : ${company}
+- 담당자 성함 : ${name}
+- 연락처 : ${phone}
+- 이메일 : ${email}
+
+■ 상세 문의 내용
+${originalMessage}
+`;
+          // 포맷팅된 메시지로 덮어쓰기
+          formData.set('message', formattedMessage);
+
+          // 4. 중복 방지를 위한 불필요한 필드 삭제
+          formData.delete('inquiry_type');
+          formData.delete('Inquiry_Type');
+          formData.delete('company_name');
+          formData.delete('Company_Name');
+          formData.delete('phone');
+          formData.delete('Phone');
+
+          try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+              method: 'POST',
+              body: formData
+            });
+
+            if (response.status === 200) {
+              form.reset();
+              successModal.classList.remove('hidden');
+            } else {
+              errorModal.classList.remove('hidden');
+            }
+          } catch (error) {
+            console.error('Submission error:', error);
+            errorModal.classList.remove('hidden');
+          } finally {
+            // Restore button
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnHtml;
+          }
+        });
+      }
+
+      // Modal close handlers
+      if (successClose) {
+        successClose.addEventListener('click', () => {
+          successModal.classList.add('hidden');
+        });
+      }
+      if (errorClose) {
+        errorClose.addEventListener('click', () => {
+          errorModal.classList.add('hidden');
+        });
+      }
+    });
+  </script>
+  <script>
+    function switchMap(type) {
+      const btnKr = document.getElementById('btn-map-kr');
+      const btnVn = document.getElementById('btn-map-vn');
+      const mapKr = document.getElementById('map-kr');
+      const mapVn = document.getElementById('map-vn');
+      
+      if (type === 'kr') {
+        btnKr.classList.add('bg-brand-orange', 'text-white');
+        btnKr.classList.remove('text-slate-400', 'hover:text-white');
+        btnVn.classList.remove('bg-brand-orange', 'text-white');
+        btnVn.classList.add('text-slate-400', 'hover:text-white');
+        
+        mapKr.classList.remove('hidden');
+        mapVn.classList.add('hidden');
+      } else {
+        btnVn.classList.add('bg-brand-orange', 'text-white');
+        btnVn.classList.remove('text-slate-400', 'hover:text-white');
+        btnKr.classList.remove('bg-brand-orange', 'text-white');
+        btnKr.classList.add('text-slate-400', 'hover:text-white');
+        
+        mapVn.classList.remove('hidden');
+        mapKr.classList.add('hidden');
+      }
+    }
+  </script></body>
+</html>
